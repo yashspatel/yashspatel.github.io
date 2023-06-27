@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE-edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Portfolio</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="https://kit.fontawesome.com/ee4434438c.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<div id="header">
+	<div class="container">
+		<nav>
+			<img src="images/logo2.png" class="logo">
+			<ul id="sidemenu">
+				<li><a href="#header">Home</a></li>
+				<li><a href="#about">About</a></li>
+				<li><a href="#services">Services</a></li>
+				<li><a href="#portfolio">Portfolio</a></li>
+				<li><a href="#contact">Contact</a></li>
+				<i class="fa-solid fa-xmark" onclick="closemenu()"></i>
+			</ul>
+			<i class="fa-solid fa-bars" onclick="openmenu()"></i>
+		</nav>
+		<div class="header-text">
+			<p>Data Scientist</p>
+			<h1>Empowering Decisions with <br><span>Data Intelligence</span>.</h1>
+			
+		</div>
+	</div>
+</div>
+<!----------about------------>
+
+<div id="about">
+	<div class="container">
+		<div class="row">
+			<div class="about-col-1">
+				<img src="images/user.jpg">
+			</div>
+			<div class="about-col-2">
+				<h1 class="sub-title">About Me</h1>
+				<p>Name: Yash Sanjaykumar Patel<br>I am an analytical and programming geek with active problem-solving skills with the help of modelling algorithms and statistical methods. Working to grow and expand my capabilities.</p>
+
+				<div class="tab-titles">
+					<p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+					<p class="tab-links" onclick="opentab('experience')">Experience</p>
+					<p class="tab-links" onclick="opentab('education')">Education</p>
+				</div>
+				
+				<div class="tab-contents active-tab" id="skills">
+					<ul>
+						<li><span>Data Scraping (Data Extraction)</span><br>Python, Advance Excel, Hadoop</li>
+						<li><span>Data Cleaning & Organizing (Data Preprocessing)</span><br>Python, Advance Excel, Hadoop</li>
+						<li><span>Data Analytics (Visual Representation of Insights)</span><br>Python, R, PowerBI/Tableau</li>
+						<li><span>Data Science (Future Prediction)</span><br>Python, Machine Learning, Deep Learning</li>
+						<li><span>Data Story Telling Expert (Explaining your data in simpler terms)</span><br>Data Science and Communication</li>
+					</ul>
+				</div>
+				<div class="tab-contents" id="experience">
+					<ul>
+						<li><span>May, 2023 - Present</span><br>Data Science Intern (Enkiube Technologies)</li>
+						<li><span>September, 2020 - March, 2021</span><br>Machine Learning Engineer Intern (Amkay Software Solution)</li>
+					</ul>
+				</div>
+				<div class="tab-contents" id="education">
+					<ul>
+						<li><span>2022 - Present</span><br>Post Graduation Diploma of Big Data Analytics (Lambton College)</li>
+						<li><span>2017 - 2021</span><br>Bachelor of Information Technology (Gujarat Technological University)</li>
+						<li><span>2015 - 2017</span><br>Higher Secondary (The H. B. Kapadia New High School)</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>
+<!-- --------------------services--------------------- -->
+<div id="services">
+	<div class="container">
+		<h1 class="sub-title">My Services</h1>
+		<div class="services-list">
+			<div>
+				<i class="fa-solid fa-magnet"></i>
+				<h2>Data Extraction</h2>
+				<p>Revealing the Hidden: Expertly Extracting Valuable Data from the Depths of Your Sources.</p>
+				<!-- <a href="#">Learn more</a> -->
+				<a href="#" class="info-link" onclick="showInfo(event, 'info1')">Learn more</a>
+			</div>
+			<div>
+				<i class="fa-solid fa-broom"></i>
+				<h2>Data Preprocessing</h2>
+				<p>From Chaos to Clarity: Converting Your Raw Data into Organized Insights with Expert Data Preprocessing.</p>
+				<!-- <a href="#">Learn more</a> -->
+				<a href="#" class="info-link" onclick="showInfo(event, 'info2')">Learn more</a>
+			</div>
+			<div>
+				<i class="fa-solid fa-chart-simple"></i>
+				<h2>Data Analytics</h2>
+				<p>Illuminating Your Path: Uncover Meaningful Insights through Advanced Data Analytics and Engaging Visualizations.</p>
+				<!-- <a href="#">Learn more</a> -->
+				<a href="#" class="info-link" onclick="showInfo(event, 'info3')">Learn more</a>
+			</div>
+			<div>
+				<i class="fa-solid fa-magnifying-glass-dollar"></i>
+				<h2>Future Prediction</h2>
+				<p>Charting Tomorrow Today: Harness the Power of Predictive Data Science to Shape Your Future Success.</p>
+				<!-- <a href="#">Learn more</a> -->
+				<a href="#" class="info-link" onclick="showInfo(event, 'info4')">Learn more</a>
+			</div>
+			<div>
+				<i class="fa-solid fa-person-chalkboard"></i>
+				<h2>Data Story Telling</h2>
+				<p>Translating Complexity: Unveiling Your Data's Tale in Simple, Impactful Narratives.</p>
+				<!-- <a href="#">Learn more</a> -->
+				<a href="#" class="info-link" onclick="showInfo(event, 'info5')">Learn more</a>
+			</div>
+		</div>
+
+	</div>
+
+	<div id="info1" class="info-popup">
+        <div class="info-content">
+            <h2>Data Extraction</h2>
+            <p>Here is some more detailed information about your Data Extraction service...</p>
+            <button onclick="closeInfo('info1')" class="btn btn2 btn3">Close</button>
+        </div>
+    </div>
+    <div id="info2" class="info-popup">
+        <div class="info-content">
+            <h2>Data Preprocessing</h2>
+            <p><br><br>Data preprocessing is a crucial step in the data analysis pipeline where raw, messy data is transformed into a format that is easier to work with and more suitable for further analysis. It's about making data 'machine-ready', and it often determines the quality of the output you can derive from your data.<br><br>
+
+Here are the key components that a data preprocessing service could cover:<br><br><br>
+
+Data Cleaning: This involves filling in missing values, smoothing noisy data, identifying or removing outliers, and resolving inconsistencies. This step is all about addressing the imperfections in the dataset that could potentially skew your results.<br><br>
+
+Data Integration: This is the process of combining data from different sources, which may involve different formats, into a coherent dataset. This can be crucial when dealing with data that comes from multiple sources, which is often the case in today's data-rich environment.<br><br>
+
+Data Transformation: This process converts data from one format or structure into another. It could involve normalizing data (scaling it to a standard range), aggregating data, or converting continuous variables into categorical ones. The goal is to transform the data in a way that makes it easier to draw meaningful insights.<br><br>
+
+Data Reduction: This involves simplifying your data without losing its essence. Techniques can include dimensionality reduction (removing redundant attributes), record sampling (using a smaller representative dataset), or discretization (converting continuous attributes into categorical ones). The goal is to make the data more manageable while preserving its ability to generate valuable insights.<br><br>
+
+Feature Engineering: This process involves creating new, predictive features from your data. It's about turning your raw data into features that better represent the underlying problem to the predictive models, resulting in improved model accuracy</p>
+            <button onclick="closeInfo('info2')" class="btn btn2 btn3">Close</button>
+        </div>
+    </div>
+    <div id="info3" class="info-popup">
+        <div class="info-content">
+            <h2>Data Analytics</h2>
+            <p>Here is some more detailed information about your Data Extraction service...</p>
+            <button onclick="closeInfo('info3')" class="btn btn2 btn3">Close</button>
+        </div>
+    </div>
+    <div id="info4" class="info-popup">
+        <div class="info-content">
+            <h2>Future Prediction</h2>
+            <p>Here is some more detailed information about your Data Extraction service...</p>
+            <button onclick="closeInfo('info4')" class="btn btn2 btn3">Close</button>
+        </div>
+    </div>
+    <div id="info5" class="info-popup">
+        <div class="info-content">
+            <h2>Data Story Telling</h2>
+            <p>Here is some more detailed information about your Data Extraction service...</p>
+            <button onclick="closeInfo('info5')" class="btn btn2 btn3">Close</button>
+        </div>
+    </div>
+</div>
+
+<!-- ---------portfolio----------- -->
+<div id="portfolio">
+	<div class="container">
+		<h1 class="sub-title">My Work</h1>
+		<div class="work-list">
+			<div class="work">
+				<img src="images/work-1.png">
+				<div class="layer">
+					<h3>Social Media App</h3>
+					<p>AutoTrain needs example data, which can be uploaded as files in the .csv</p>
+					<a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+				</div>
+			</div>
+			<div class="work">
+				<img src="images/work-2.png">
+				<div class="layer">
+					<h3>Music App</h3>
+					<p>AutoTrain needs example data, which can be uploaded as files in the .csv</p>
+					<a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+				</div>
+			</div>
+			<div class="work">
+				<img src="images/work-3.png">
+				<div class="layer">
+					<h3>Online Shopping App</h3>
+					<p>AutoTrain needs example data, which can be uploaded as files in the .csv</p>
+					<a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+				</div>
+			</div>
+		</div>
+		<a href="#" class="btn">See more</a>
+	</div>
+</div>
+<!-- ----------contact--------- -->
+<div id="contact">
+	<div class="container">
+		<div class="row">
+			<div class="contact-left">
+				<h1 class="sub-title">Contact Me</h1>
+				<p><i class="fa-solid fa-paper-plane"></i> yashsp29599@gmail.com</p>
+				<p><i class="fa-solid fa-square-phone"></i> +1 (647)446-6971</p>
+				<div class="social-icons">
+					<a href="https://www.linkedin.com/in/yashsanjaykumarpatel/"><i class="fa-brands fa-linkedin"></i></a>
+					<a href="https://www.facebook.com/profile.php?id=100007135113507"><i class="fa-brands fa-facebook"></i></a>
+					<a href="https://www.instagram.com/mebhiyash/"><i class="fa-brands fa-square-instagram"></i></a>
+					<a href="https://twitter.com/PatelYash_29"><i class="fa-brands fa-square-twitter"></i></a>
+				</div>
+				<a href="images/Yash's Resume.pdf" class="btn btn2">Download CV</a>
+			</div>
+			<div class="contact-right">
+				<form name="submit-to-google-sheet">
+					<input type="text" name="Name" placeholder="Your Name" required>
+					<input type="email" name="Email" placeholder="Your Email" required>
+					<textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+					<button type="submit" class="btn btn2">Submit</button>
+				</form>
+				<span id="msg"></span>
+			</div>
+		</div>
+	</div>
+	<div class="copyright">
+		<p>Copyright © Yash.</p>
+	</div>
+</div>
+
+<script type="text/javascript">
+	var tablinks = document.getElementsByClassName("tab-links");
+	var tabcontents = document.getElementsByClassName("tab-contents");
+	function opentab(tabname){
+		for(tablink of tablinks){
+			tablink.classList.remove("active-link");
+		}
+		for(tabcontent of tabcontents){
+			tabcontent.classList.remove("active-tab");
+		}
+		event.currentTarget.classList.add("active-link");
+		document.getElementById(tabname).classList.add("active-tab");
+	}
+</script>
+<script type="">
+	var sidemenu = document.getElementById("sidemenu");
+
+	function openmenu(){
+		sidemenu.style.right = "0";
+	}
+	function closemenu(){
+		sidemenu.style.right = "-200px";
+	}
+</script>
+<script>
+	const scriptURL = 'https://script.google.com/macros/s/AKfycbz6gh1RJp2Ex0i9Cp5l27tWN4sc4erKeZpUchY9OYgoBuJmPq1IHGalH1DNxPtW3q_b/exec'
+	const form = document.forms['submit-to-google-sheet']
+	const msg = document.getElementById("msg")
+
+	form.addEventListener('submit', e => {
+		e.preventDefault()
+		fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+			.then(response => {
+				msg.innerHTML = "Message sent successfully!"
+				setTimeout(function(){
+					msg.innerHTML = ""
+				}, 5000)
+				form.reset()
+			})
+			.catch(error => console.error('Error!', error.message))
+  })
+</script>
+
+
+<script type="text/javascript">
+	function showInfo(event, id) {
+    	event.preventDefault();  
+    	document.getElementById(id).style.display = 'block';
+	}
+
+	function closeInfo(id) {
+    	document.getElementById(id).style.display = 'none';
+	}
+</script>
+</body>
+</html>
