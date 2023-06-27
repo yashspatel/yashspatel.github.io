@@ -368,7 +368,7 @@ nav .fa-solid{
 }
 @media only screen and (max-width: 786433px){
 	#header{
-		background-image: url(images/phone-background.jpg);
+		background-image: url(images/pad-background.jpg);
 	}
 @media only screen and (max-width: 600px){
 	.header-text{
