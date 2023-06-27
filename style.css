@@ -366,7 +366,7 @@ form .btn2{
 nav .fa-solid{
 	display: none;
 }
-@media only screen and (max-width: 800px){
+@media only screen and (max-width: 600px){
 	#header{
 		background-image: url(images/pad-background.jpg);
 	}
