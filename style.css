@@ -284,7 +284,8 @@ nav ul li a:hover::after{
     bottom: 0;
 }
 .bio-link{
-	font-size: 10px;
+	font-size: 12px;
+	color: #fff;
 }
 
 /*----------portfolio----------*/
