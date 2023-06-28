@@ -17,7 +17,7 @@
 				<li><a href="#header">Home</a></li>
 				<li><a href="#about">About</a></li>
 				<li><a href="#services">Services</a></li>
-				<li><a href="#portfolio">Portfolio</a></li>
+				<li><a href="#portfolio">My Work</a></li>
 				<li><a href="#contact">Contact</a></li>
 				<i class="fa-solid fa-xmark" onclick="closemenu()"></i>
 			</ul>
@@ -40,7 +40,7 @@
 			</div>
 			<div class="about-col-2">
 				<h1 class="sub-title">About Me</h1>
-				<p>Name: Yash Sanjaykumar Patel<br>I am an analytical and programming geek with active problem-solving skills with the help of modelling algorithms and statistical methods. Working to grow and expand my capabilities.</p>
+				<p>Name: Yash Sanjaykumar Patel<br>I am an analytical and programming geek with active problem-solving skills with the help of modelling algorithms and statistical methods. Working to grow and expand my capabilities. <i class="fa-solid fa-angles-right bio-link" onclick="showBio(event, 'bio')"></i></p>
 
 				<div class="tab-titles">
 					<p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
@@ -72,6 +72,27 @@
 				</div>
 			</div>
 		</div>
+
+
+
+	<div id="bio" class="bio-popup">
+        <div class="bio-content">
+        	<i class="fa-solid fa-xmark btn4" onclick="closeBio('bio')"></i>
+            <span><h2>Yash Sanjaykumar Patel</h2></span>
+            <p><br><br>As a passionate programming geek, I possess a strong set of problem-solving skills that enable me to model algorithms and apply statistical methods to tackle complex challenges. My goal is to work with a company that can provide me with ample opportunities to learn, grow, and expand my capabilities.<br><br>
+
+In 2017, I immersed myself in the field of computer science and completed a 4-year <span>Bachelor's degree</span> in <span>Information Technology</span>. During my final semester, I had the opportunity to embark on a six-month industry exposure program where I contributed to <span>ML assistance</span> and built a <span>Customer Relationship Management (CRM)</span> software for the company.<br><br>
+
+It was during this project that I developed a keen interest in the world of data and its endless possibilities. Eager to explore this field further, I enrolled in a 2-year <span>Post Graduate Diploma of Big Data Analytics</span>, which commenced in January 2022. This program has equipped me with valuable skills in data analytics, enabling me to extract meaningful insights from complex datasets.<br><br>
+
+Currently, I am working as a <span>Data Scientist Intern</span> at <span>Enkiube Technologies</span> since May 2023, alongside my studies. This internship has provided me with hands-on experience in real-world data science projects, further enhancing my skills and knowledge in the field. I am actively applying my expertise in data analysis, machine learning, and statistical modeling to solve business problems and drive data-driven decision making.<br><br>
+
+As I approach the completion of my studies in August 2023, I am excited to leverage my skills and experience to contribute to organizations that value data-driven insights and innovation. I am actively seeking full-time opportunities in the field of data science and would welcome any potential collaborations or career opportunities. Please feel free to reach out to me via email at <span>yashsanjaykumarpatel@gmail.com</span> to discuss potential opportunities.</p>
+            
+        </div>
+    </div>
+
+
 	</div>
 
 </div>
@@ -80,40 +101,40 @@
 	<div class="container">
 		<h1 class="sub-title">My Services</h1>
 		<div class="services-list">
-			<div>
+			<div class="service">
 				<i class="fa-solid fa-magnet"></i>
 				<h2>Data Extraction</h2>
 				<p>Revealing the Hidden: Expertly Extracting Valuable Data from the Depths of Your Sources.</p>
 				<!-- <a href="#">Learn more</a> -->
-				<a href="#" class="info-link" onclick="showInfo(event, 'info1')">Learn more</a>
+				<i class="fa-solid fa-circle-info info-link" onclick="showInfo(event, 'info1')"></i>
 			</div>
-			<div>
+			<div class="service">
 				<i class="fa-solid fa-broom"></i>
 				<h2>Data Preprocessing</h2>
 				<p>From Chaos to Clarity: Converting Your Raw Data into Organized Insights with Expert Data Preprocessing.</p>
 				<!-- <a href="#">Learn more</a> -->
-				<a href="#" class="info-link" onclick="showInfo(event, 'info2')">Learn more</a>
+				<i class="fa-solid fa-circle-info info-link" onclick="showInfo(event, 'info2')"></i>
 			</div>
-			<div>
+			<div class="service">
 				<i class="fa-solid fa-chart-simple"></i>
 				<h2>Data Analytics</h2>
 				<p>Illuminating Your Path: Uncover Meaningful Insights through Advanced Data Analytics and Engaging Visualizations.</p>
 				<!-- <a href="#">Learn more</a> -->
-				<a href="#" class="info-link" onclick="showInfo(event, 'info3')">Learn more</a>
+				<i class="fa-solid fa-circle-info info-link" onclick="showInfo(event, 'info3')"></i>
 			</div>
-			<div>
+			<div class="service">
 				<i class="fa-solid fa-magnifying-glass-dollar"></i>
 				<h2>Future Prediction</h2>
 				<p>Charting Tomorrow Today: Harness the Power of Predictive Data Science to Shape Your Future Success.</p>
 				<!-- <a href="#">Learn more</a> -->
-				<a href="#" class="info-link" onclick="showInfo(event, 'info4')">Learn more</a>
+				<i class="fa-solid fa-circle-info info-link" onclick="showInfo(event, 'info4')"></i>
 			</div>
-			<div>
+			<div class="service">
 				<i class="fa-solid fa-person-chalkboard"></i>
 				<h2>Data Story Telling</h2>
 				<p>Translating Complexity: Unveiling Your Data's Tale in Simple, Impactful Narratives.</p>
 				<!-- <a href="#">Learn more</a> -->
-				<a href="#" class="info-link" onclick="showInfo(event, 'info5')">Learn more</a>
+				<i class="fa-solid fa-circle-info info-link" onclick="showInfo(event, 'info5')"></i>
 			</div>
 		</div>
 
@@ -122,7 +143,7 @@
 	<div id="info1" class="info-popup">
         <div class="info-content">
         	<i class="fa-solid fa-xmark btn4" onclick="closeInfo('info1')"></i>
-            <h2><span>Data Extraction</span></h2>
+            <span><h2>Data Extraction</h2></span>
             <p><br><br>Data extraction involves retrieving or identifying relevant data from a variety of sources. It's about finding the valuable nuggets of information within vast, often unstructured, data sources. This is a critical first step in the data analysis process, setting the foundation for all subsequent steps.<br><br>
 
 The key components of a data extraction service could include:<br><br>
@@ -141,7 +162,7 @@ The key components of a data extraction service could include:<br><br>
 
         <div class="info-content">
         	<i class="fa-solid fa-xmark btn4" onclick="closeInfo('info2')"></i>
-            <h2><span>Data Preprocessing</span></h2>
+            <span><h2>Data Preprocessing</h2></span>
             <p><br><br>Data preprocessing is a crucial step in the data analysis pipeline where raw, messy data is transformed into a format that is easier to work with and more suitable for further analysis. It's about making data 'machine-ready', and it often determines the quality of the output you can derive from your data.<br><br>
 
 Here are the key components that a data preprocessing service could cover:<br><br>
@@ -161,7 +182,7 @@ Here are the key components that a data preprocessing service could cover:<br><b
     <div id="info3" class="info-popup">
         <div class="info-content">
         	<i class="fa-solid fa-xmark btn4" onclick="closeInfo('info3')"></i>
-            <h2><span>Data Analytics</span></h2>
+            <span><h2>Data Analytics</h2></span>
             <p><br><br>Data Analytics and Insight Visualization are two interconnected steps in the data analysis process. Data analytics involves using techniques to discover and interpret meaningful patterns in data, while visualization aims to present these findings in a visual and easily understandable format.<br><br>
 
 Here's a breakdown of what these services may include:<br><br>
@@ -183,7 +204,7 @@ Here's a breakdown of what these services may include:<br><br>
     <div id="info4" class="info-popup">
         <div class="info-content">
         	<i class="fa-solid fa-xmark btn4" onclick="closeInfo('info4')"></i>
-            <h2><span>Future Prediction</span></h2>
+            <span><h2>Future Prediction</h2></span>
             <p><br><br>Future prediction with data science, often referred to as predictive analytics or predictive modeling, involves using statistical techniques and machine learning algorithms to analyze current and historical facts to make predictions about future or otherwise unknown events.<br><br>
 
 Here's what a future prediction service with data science and machine learning might include:<br><br>
@@ -205,7 +226,7 @@ Here's what a future prediction service with data science and machine learning m
     <div id="info5" class="info-popup">
         <div class="info-content">
         	<i class="fa-solid fa-xmark btn4" onclick="closeInfo('info5')"></i>
-            <h2><span>Data Story Telling</span></h2>
+            <span><h2>Data Story Telling</h2></span>
             <p><br><br>Data storytelling involves translating complex data analyses into layman's terms and presenting them in an engaging and understandable manner. It's about creating a narrative that gives context to the numbers, making the insights derived from the data more accessible and actionable.<br><br>
 
 A data storytelling service could include:<br><br>
@@ -263,7 +284,7 @@ A data storytelling service could include:<br><br>
 		<div class="row">
 			<div class="contact-left">
 				<h1 class="sub-title">Contact Me</h1>
-				<p><i class="fa-solid fa-paper-plane"></i> yashsp29599@gmail.com</p>
+				<p><i class="fa-solid fa-paper-plane"></i> yashsanjaykumarpatel@gmail.com</p>
 				<p><i class="fa-solid fa-square-phone"></i> +1 (647)446-6971</p>
 				<div class="social-icons">
 					<a href="https://www.linkedin.com/in/yashsanjaykumarpatel/"><i class="fa-brands fa-linkedin"></i></a>
@@ -358,6 +379,16 @@ if (os === 'android' || os === 'other') {
 	}
 
 	function closeInfo(id) {
+    	document.getElementById(id).style.display = 'none';
+	}
+
+
+	function showBio(event, id) {
+    	event.preventDefault();  
+    	document.getElementById(id).style.display = 'block';
+	}
+
+	function closeBio(id) {
     	document.getElementById(id).style.display = 'none';
 	}
 </script>
