@@ -283,8 +283,8 @@ nav ul li a:hover::after{
     right: 15px;
     bottom: 0;
 }
-.fa-solid.fa-angles-right.bio-link{
-	font-size: 20px;
+.bio-link{
+	font-size: 10px;
 }
 
 /*----------portfolio----------*/
