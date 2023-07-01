@@ -5,6 +5,7 @@ body {
     background-color: #080808;
     color: #fff;
     font-family: 'Poppins', sans-serif;
+	font-border-radius: 10px;
 }
 
 .fa-solid{
