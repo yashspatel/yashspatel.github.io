@@ -11,11 +11,10 @@
             font-family: Arial, sans-serif;
         }
         .container {
-            max-width: 1200px;
+            max-width: 800px;
             margin: auto;
             padding: 20px;
             background-color: #262626;
-            border-radius: 10px;
         }
         h1, h2, h3, h4, h5, h6 {
             color: #ff3131;
@@ -23,43 +22,82 @@
         p {
             color: #ff3131;
         }
-        img {
-            max-width: 100%;
+        .slider {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow: hidden;
             height: auto;
+            position: relative;
         }
-        video {
+        .slider img {
             width: 100%;
             height: auto;
+            display: none;
+        }
+        .slider img.active {
+            display: block;
+        }
+        .slider-indicator {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            padding: 10px 0;
+        }
+        .slider-indicator button {
+            border: none;
+            background-color: #ff3131;
+            border-radius: 50%;
+            width: 10px;
+            height: 10px;
+        }
+        .slider-indicator button.active {
+            background-color: #262626;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Weed Detection using YOLOv8 Instance Segmentation</h1>
-        <h2>An Exploration into the Cutting-Edge Technology of Object Segmentation</h2>
-        <p>It gives me immense pleasure to share the details of a groundbreaking project I have had the opportunity to work on along with my talented team. The project involved detecting grass-weeds amidst a dense field of grass, a challenging task that tested our skills and persistence.</p>
-        <p>We used the cutting-edge technology of object segmentation, specifically, "You Only Look Once" Version 8 (YOLOv8). This technology has left us in awe with its extraordinary capabilities and precision. Even in scenarios where traditional object detection would struggle due to the high density of the grass, object segmentation using YOLOv8 proved incredibly accurate.</p>
+        <!-- Your content here -->
 
-        <h3>Model in action</h3>
-        <p>To better understand the effectiveness of our model, we've prepared a video that shows a comparison between the input and output of our system. Observe the 'before' scenario - a dense field of grass with indiscernible weeds, and the 'after' - where our model, integrated with the Flask Framework, accurately identifies and highlights the weeds.</p>
+        <div class="slider">
+            <img src="images/work/weedDetection/1.jpeg" class="active" alt="Image 1">
+            <img src="images/work/weedDetection/2.jpeg" alt="Image 2">
+            <!-- Add more images as needed -->
+            <div class="slider-indicator">
+                <!-- Buttons will be inserted here by JavaScript -->
+            </div>
+        </div>
 
-        <!-- Remember to replace the src attributes with actual paths to your images -->
-        <h3>Video output screenshots</h3>
-        <p>Here are some screenshots from the output video demonstrating the precision of our model:</p>
-        <img src="screenshot1.jpg" alt="Video output screenshot 1">
-        <img src="screenshot2.jpg" alt="Video output screenshot 2">
-
-        <h3>Flask framework integration</h3>
-        <p>Furthermore, we integrated the trained model with the Flask Framework, enhancing its versatility. Here are some screenshots of our Flask Frontend framework.</p>
-        <img src="flask1.jpg" alt="Flask Frontend screenshot 1">
-        <img src="flask2.jpg" alt="Flask Frontend screenshot 2">
-        <img src="flask3.jpg" alt="Flask Frontend screenshot 3">
-        
-        <p>I am extremely grateful to Professor Sina K. Maram for his invaluable guidance throughout this exciting journey. Our exploration into the world of object segmentation using YOLOv8 technology has opened our eyes to its immense potential, and we look forward to further research and development in this field.</p>
-        <p>For more technical details about our project, feel free to check out my <a href="https://github.com/your-username/your-repository" target="_blank">Github repository</a>.</p>
+        <!-- More of your content here -->
     </div>
+
     <script>
-        // Add JavaScript here
+        var sliderImages = Array.from(document.querySelectorAll(".slider img"));
+        var currentIndex = 0;
+
+        function showImage(index) {
+            sliderImages.forEach(function(img, i) {
+                img.classList.toggle("active", i === index);
+            });
+            Array.from(document.querySelectorAll(".slider-indicator button")).forEach(function(btn, i) {
+                btn.classList.toggle("active", i === index);
+            });
+        }
+
+        // Insert indicator buttons
+        var indicator = document.querySelector(".slider-indicator");
+        sliderImages.forEach(function(img, index) {
+            var btn = document.createElement("button");
+            btn.addEventListener("click", function() {
+                currentIndex = index;
+                showImage(currentIndex);
+            });
+            indicator.appendChild(btn);
+        });
+
+        showImage(currentIndex);  // Show the first image
     </script>
 </body>
 </html>
