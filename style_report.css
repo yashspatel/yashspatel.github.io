@@ -106,20 +106,17 @@ img, video {
 .slider img.active {
             display: block; /* only show the active image */
         }
-.slider i{
+.slider.fa-solid{
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background-color: rgba(0, 0, 0, 0.5);
-            color: #fff;
-            border: none;
             padding: 10px;
             cursor: pointer;
         }
-.slider.prev{
+.slider.fa-solid.fa-circle-arrow-left{
             left: 10px;
         }
-.slider.next{
+.slider.fa-solid.fa-circle-arrow-right{
             right: 10px;
         }
 
