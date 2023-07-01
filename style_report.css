@@ -83,8 +83,8 @@ p {
 p span{
 	color: #ff3131;
 }
-p span.github{
-	color: #fff;
+p span.link{
+	color: #007aff;
 }
 
 img, video {
