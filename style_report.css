@@ -12,6 +12,7 @@ body {
 }
 .fa-regular{
 	color: #ff3131;
+	font-size: 15px;
 }
 .fa-solid.fa-arrow-left{
 	cursor: pointer;
