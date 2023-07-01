@@ -105,7 +105,7 @@
       })
     </script>
 <!-- For Image slider -->
-    <script>
+     <script>
         var sliderImages = Array.from(document.querySelectorAll(".slider img"));
         var currentIndex = 0;
 
@@ -113,18 +113,23 @@
             sliderImages.forEach(function(img, i) {
                 img.classList.toggle("active", i === index);
             });
+            Array.from(document.querySelectorAll(".slider-indicator button")).forEach(function(btn, i) {
+                btn.classList.toggle("active", i === index);
+            });
         }
 
-        document.querySelector(".slider .prev").addEventListener("click", function() {
-            currentIndex = (currentIndex - 1 + sliderImages.length) % sliderImages.length;
-            showImage(currentIndex);
+        // Insert indicator buttons
+        var indicator = document.querySelector(".slider-indicator");
+        sliderImages.forEach(function(img, index) {
+            var btn = document.createElement("button");
+            btn.addEventListener("click", function() {
+                currentIndex = index;
+                showImage(currentIndex);
+            });
+            indicator.appendChild(btn);
         });
 
-        document.querySelector(".slider .next").addEventListener("click", function() {
-            currentIndex = (currentIndex + 1) % sliderImages.length;
-            showImage(currentIndex);
-        });
+        showImage(currentIndex);  // Show the first image
     </script>
-
 </body>
 </html>
