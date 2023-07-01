@@ -91,7 +91,37 @@ img, video {
     max-width: 30%;
     margin: 10px;
 }
-
+.slider {
+            width: 100%;
+            display: flex;
+            overflow: hidden;
+            height: 300px; /* or whatever height you want for your images */
+            position: relative;
+        }
+        .slider img {
+            width: 100%;
+            height: auto;
+            display: none; /* by default, hide all images */
+        }
+        .slider img.active {
+            display: block; /* only show the active image */
+        }
+        .slider button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+        .slider button.prev {
+            left: 10px;
+        }
+        .slider button.next {
+            right: 10px;
+        }
 
 .btn {
 	margin: 50px auto;
