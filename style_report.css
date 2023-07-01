@@ -23,12 +23,12 @@ body {
 }
 
 .container {
-            max-width: 1200px;
-            margin: auto;
-            padding: 20px;
-            background-color: #262626;
-            border-radius: 10px;
-        }
+	max-width: 1200px;
+	margin: auto;
+	padding: 20px;
+	background-color: #262626;
+	border-radius: 10px;
+}
 
 
 
@@ -98,15 +98,15 @@ img, video {
             height: 300px; /* or whatever height you want for your images */
             position: relative;
         }
-        .slider img {
+.slider img {
             width: auto;
             height: auto;
             display: none; /* by default, hide all images */
         }
-        .slider img.active {
+.slider img.active {
             display: block; /* only show the active image */
         }
-        .slider i{
+.slider i{
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
@@ -116,10 +116,10 @@ img, video {
             padding: 10px;
             cursor: pointer;
         }
-        .slider.fa-solid.fa-circle-arrow-left.prev{
+.slider.prev{
             left: 10px;
         }
-        .slider.fa-solid.fa-circle-arrow-right.next{
+.slider.next{
             right: 10px;
         }
 
