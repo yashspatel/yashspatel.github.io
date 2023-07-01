@@ -81,7 +81,7 @@ img, video {
     margin: 0 auto 20px;
 }
 
-.img-container {
+/* .img-container {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
@@ -90,34 +90,39 @@ img, video {
 .img-container img {
     max-width: 30%;
     margin: 10px;
-}
+} */
 .slider {
             width: 100%;
             display: flex;
+            flex-direction: column;
+            align-items: center;
             overflow: hidden;
-            height: 300px; /* or whatever height you want for your images */
+            height: auto;
             position: relative;
         }
-.slider img {
-            width: auto;
+        .slider img {
+            width: 100%;
             height: auto;
-            display: none; /* by default, hide all images */
+            display: none;
         }
-.slider img.active {
-            display: block; /* only show the active image */
+        .slider img.active {
+            display: block;
         }
-.slider.fa-solid{
-            position: absolute;
-            top: 50%;
-/*             transform: translateY(-50%); */
-            padding: 10px;
-            cursor: pointer;
+        .slider-indicator {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            padding: 10px 0;
         }
-.slider.fa-solid.fa-circle-arrow-left{
-            left: 10px;
+        .slider-indicator button {
+            border: none;
+            background-color: #080808;
+            border-radius: 50%;
+            width: 10px;
+            height: 10px;
         }
-.slider.fa-solid.fa-circle-arrow-right{
-            right: 10px;
+        .slider-indicator button.active {
+            background-color: #ff3131;
         }
 
 .btn {
