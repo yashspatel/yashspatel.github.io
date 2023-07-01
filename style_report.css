@@ -116,10 +116,10 @@ img, video {
             padding: 10px;
             cursor: pointer;
         }
-        .slider.prev {
+        .slider.fa-solid.fa-circle-arrow-left.prev{
             left: 10px;
         }
-        .slider.next {
+        .slider.fa-solid.fa-circle-arrow-right.next{
             right: 10px;
         }
 
@@ -141,7 +141,7 @@ img, video {
 }
 
 form input, form textarea{
-	width: auto;
+	width: 96%;
 	border: 0;
 	outline: none;
 	background: #080808;
