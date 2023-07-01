@@ -101,7 +101,7 @@ img, video {
             position: relative;
         }
         .slider img {
-            width: 100%;
+            width: auto;
             height: auto;
             display: none;
         }
