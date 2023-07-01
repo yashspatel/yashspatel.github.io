@@ -40,10 +40,14 @@
             <p><i class="fa-regular fa-circle"></i>&nbsp
                 Here are some screenshots from the output video demonstrating the precision of our model:
             </p>
-            <div class="img-container">
+        <div class="slider">
+            <button class="prev">Prev</button>
+<!--             <div class="img-container"> -->
                 <img src="images/work/weedDetection/4.jpeg" alt="Video output screenshot 1">
                 <img src="images/work/weedDetection/5.jpeg" alt="Video output screenshot 2">
-            </div>
+<!--             </div> -->
+            <button class="next">Next</button>
+        </div>
             <!-- Images Display -->
             <h3>Flask framework integration</h3>
             <p><i class="fa-regular fa-circle"></i>&nbsp
@@ -98,6 +102,27 @@
             })
             .catch(error => console.error('Error!', error.message))
       })
+    </script>
+<!-- For Image slider -->
+    <script>
+        var sliderImages = Array.from(document.querySelectorAll(".slider img"));
+        var currentIndex = 0;
+
+        function showImage(index) {
+            sliderImages.forEach(function(img, i) {
+                img.classList.toggle("active", i === index);
+            });
+        }
+
+        document.querySelector(".slider .prev").addEventListener("click", function() {
+            currentIndex = (currentIndex - 1 + sliderImages.length) % sliderImages.length;
+            showImage(currentIndex);
+        });
+
+        document.querySelector(".slider .next").addEventListener("click", function() {
+            currentIndex = (currentIndex + 1) % sliderImages.length;
+            showImage(currentIndex);
+        });
     </script>
 
 </body>
