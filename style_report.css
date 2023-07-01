@@ -106,7 +106,7 @@ img, video {
         .slider img.active {
             display: block; /* only show the active image */
         }
-        .slider button {
+        .slider i{
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
@@ -116,10 +116,10 @@ img, video {
             padding: 10px;
             cursor: pointer;
         }
-        .slider button.prev {
+        .slider.prev {
             left: 10px;
         }
-        .slider button.next {
+        .slider.next {
             right: 10px;
         }
 
