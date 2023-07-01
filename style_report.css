@@ -111,7 +111,7 @@ img, video {
 }
 
 form input, form textarea{
-	width: 100%;
+	width: auto;
 	border: 0;
 	outline: none;
 	background: #080808;
