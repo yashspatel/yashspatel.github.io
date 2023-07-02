@@ -118,7 +118,7 @@ img, video {
             border: none;
             background-color: #080808;
             border-radius: 50%;
-            width: 10px;
+            width: auto;
             height: auto;
         }
         .slider-indicator button.active {
