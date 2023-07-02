@@ -119,7 +119,7 @@ img, video {
             background-color: #080808;
             border-radius: 50%;
             width: 10px;
-            height: 10px;
+            height: auto;
         }
         .slider-indicator button.active {
             background-color: #ff3131;
