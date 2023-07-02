@@ -120,6 +120,7 @@ img, video {
             border-radius: 50%;
             width: 10px;
             height: 10px;
+	    box-sizing: border-box;
         }
         .slider-indicator button.active {
             background-color: #ff3131;
