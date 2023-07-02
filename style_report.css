@@ -176,7 +176,7 @@ form input, form textarea{
 		font-size: 1em;
 	}
 	.slider img {
-                max-width: 100%;
-                height: auto;
+                max-height: 100%;
+                width: auto;
             }
 }
