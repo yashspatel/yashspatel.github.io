@@ -174,4 +174,8 @@ form input, form textarea{
 	p{
 		font-size: 1em;
 	}
+	.slider img {
+                max-width: 100%;
+                height: auto;
+            }
 }
