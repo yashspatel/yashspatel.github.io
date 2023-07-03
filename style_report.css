@@ -3,7 +3,7 @@ html{
 }
 body {
     background-color: #080808;
-    color: #fff;
+    color: #080808;
     font-family: Arial, sans-serif;
 }
 
@@ -12,13 +12,13 @@ body {
 }
 .fa-regular{
 	color: #ff3131;
-	font-size: 15px;
+	font-size: 12px;
 }
 .fa-solid.fa-arrow-left{
 	cursor: pointer;
 	font-size: 20px;
     position: absolute;
-    left: 15px;
+    left: 20px;
     top: 15px;
 }
 
@@ -26,7 +26,7 @@ body {
 	max-width: 1200px;
 	margin: auto;
 	padding: 20px;
-	background-color: #262626;
+	background-color: #fff;
 	border-radius: 10px;
 }
 
@@ -34,7 +34,6 @@ body {
 
 h1 {
 	text-align: center;
-	border-bottom: 0.5px solid white;
     font-size: 2.8em;
     margin-top: 0;
     padding-bottom: 10px;
@@ -44,7 +43,8 @@ h1 {
 
 h2 {
 	text-align: center;
-	color: #ff3131;
+	/*color: #ff3131;*/
+	color: #080808;
 	font-weight: normal;
     font-size: 1.8em;
     margin-top: 20px;
@@ -53,8 +53,8 @@ h2 {
 
 h3 {
 	color: #ff3131;
-    font-size: 1.8em;
-    font-weight: normal;
+    font-size: 1.2em;
+    /*font-weight: normal;*/
     margin-top: 20px;
     margin-bottom: 10px;
 }
@@ -101,7 +101,7 @@ img, video {
             position: relative;
         }
         .slider img {
-            width: auto;
+            max-width: 30%;
             height: auto;
             display: none;
         }
@@ -147,7 +147,7 @@ form input, form textarea{
 	width: 96%;
 	border: 0;
 	outline: none;
-	background: #080808;
+	background: #262626;
 	padding: 15px;
 	margin: 15px 0;
 	color: #fff;
