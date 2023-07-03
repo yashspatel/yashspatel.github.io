@@ -43,6 +43,7 @@ h1 {
 }
 
 h2 {
+	font-style: italic;
 	text-align: center;
 	/*color: #ff3131;*/
 	color: #080808;
