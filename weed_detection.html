@@ -113,20 +113,25 @@
             sliderImages.forEach(function(img, i) {
                 img.classList.toggle("active", i === index);
             });
-            Array.from(document.querySelectorAll(".slider-indicator button")).forEach(function(btn, i) {
-                btn.classList.toggle("active", i === index);
+            Array.from(document.querySelectorAll(".slider-indicator svg")).forEach(function(svg, i) {
+                svg.firstElementChild.setAttribute("fill", i === index ? "#262626" : "#ff3131");
             });
         }
 
-        // Insert indicator buttons
+        // Insert indicator SVGs
         var indicator = document.querySelector(".slider-indicator");
         sliderImages.forEach(function(img, index) {
-            var btn = document.createElement("button");
-            btn.addEventListener("click", function() {
+            var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+            var circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+            circle.setAttribute("cx", "5");
+            circle.setAttribute("cy", "5");
+            circle.setAttribute("r", "5");
+            svg.appendChild(circle);
+            svg.addEventListener("click", function() {
                 currentIndex = index;
                 showImage(currentIndex);
             });
-            indicator.appendChild(btn);
+            indicator.appendChild(svg);
         });
 
         showImage(currentIndex);  // Show the first image
