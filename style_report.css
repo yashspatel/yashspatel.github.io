@@ -97,11 +97,10 @@ img, video {
             flex-direction: column;
             align-items: center;
             overflow: hidden;
-            height: auto;
             position: relative;
         }
         .slider img {
-            max-width: 30%;
+            width: 100%;
             height: auto;
             display: none;
         }
@@ -114,16 +113,10 @@ img, video {
             gap: 10px;
             padding: 10px 0;
         }
-        .slider-indicator button {
-            border: none;
-            background-color: #080808;
-            border-radius: 50%;
-            width: 12px;
-            height: 12px;
-	    box-sizing: border-box;
-        }
-        .slider-indicator button.active {
-            background-color: #ff3131;
+        .slider-indicator svg {
+            width: 10px;
+            height: 10px;
+            cursor: pointer;
         }
 
 .btn {
