@@ -15,7 +15,7 @@
             <!-- Project Title -->
             <h1 class="sub-title">Weed Detection using YOLOv8 Instance Segmentation</h1>
             <!-- Sub-title -->
-            <h2>An Exploration into the Cutting-Edge Technology of Object Segmentation<br><br></h2>
+            <h2>An Exploration into the Cutting-Edge Technology of Object Segmentation</h2>
 
             <!-- Project Description -->
             <p><i class="fa-regular fa-circle"></i>&nbsp
@@ -40,99 +40,25 @@
             <p><i class="fa-regular fa-circle"></i>&nbsp
                 Here are some screenshots from the output video demonstrating the precision of our model:
             </p>
-       
-        
-        
-        
-        <!-- image-slider for the image gallery -->
-            <div class="image-slider">
-            
-              <!-- Full-width images with number text -->
-              <div class="mySlides1">
-                <div class="numbertext">1 / 2</div>
-                  <img src="images/work/weedDetection/4.jpeg" style="width:100%">
-              </div>
-            
-              <div class="mySlides1">
-                <div class="numbertext">2 / 2</div>
-                  <img src="images/work/weedDetection/5.jpeg" style="width:100%">
-              </div>
-
-  
-              <!-- Next and previous buttons -->
-              <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-              <a class="next" onclick="plusSlides(1)">&#10095;</a>
-            
-              <!-- Image text -->
-              <div class="caption-image-slider">
-                <p id="caption"></p>
-              </div>
-            
-              <!-- Thumbnail images -->
-              <div class="row">
-                <div class="column">
-                  <img class="demo1 cursor" src="images/work/weedDetection/4.jpeg" style="width:100%" onclick="currentSlide(1)" alt="Screenshot 1">
-                </div>
-                <div class="column">
-                  <img class="demo1 cursor" src="images/work/weedDetection/5.jpeg" style="width:100%" onclick="currentSlide(2)" alt="Screenshot 2">
-                </div>
-              </div>
+        <div class="slider">
+<!--             <div class="img-container"> -->
+                <img src="images/work/weedDetection/4.jpeg" class="active" alt="Video output screenshot 1">
+                <img src="images/work/weedDetection/5.jpeg" alt="Video output screenshot 2">
+<!--             </div> -->
+            <div class="slider-indicator">
+                <!-- Buttons will be inserted here by JavaScript -->
             </div>
-
+        </div>
             <!-- Images Display -->
             <h3>Flask framework integration</h3>
             <p><i class="fa-regular fa-circle"></i>&nbsp
                 Furthermore, we integrated the trained model with the Flask Framework, enhancing its versatility. Here are some screenshots of our Flask Frontend framework.
             </p>
-            
-
-
-            <!-- image-slider for the image gallery -->
-            <div class="image-slider">
-            
-              <!-- Full-width images with number text -->
-              <div class="mySlides2">
-                <div class="numbertext">1 / 3</div>
-                  <img src="images/work/weedDetection/1.jpeg" style="width:100%">
-              </div>
-
-            <div class="mySlides2">
-                <div class="numbertext">2 / 3</div>
-                  <img src="images/work/weedDetection/2.jpeg" style="width:100%">
-              </div>
-            
-              <div class="mySlides2">
-                <div class="numbertext">3 / 3</div>
-                  <img src="images/work/weedDetection/3.jpeg" style="width:100%">
-              </div>
-
-  
-              <!-- Next and previous buttons -->
-              <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-              <a class="next" onclick="plusSlides(1)">&#10095;</a>
-            
-              <!-- Image text -->
-              <div class="caption-image-slider">
-                <p id="caption"></p>
-              </div>
-            
-              <!-- Thumbnail images -->
-              <div class="row">
-                <div class="column">
-                  <img class="demo2 cursor" src="images/work/weedDetection/1.jpeg" style="width:100%" onclick="currentSlide(1)" alt="First Page">
-                </div>
-                <div class="column">
-                  <img class="demo2 cursor" src="images/work/weedDetection/2.jpeg" style="width:100%" onclick="currentSlide(1)" alt="Second Page">
-                </div>
-                <div class="column">
-                  <img class="demo2 cursor" src="images/work/weedDetection/3.jpeg" style="width:100%" onclick="currentSlide(2)" alt="Third Page">
-                </div>
-              </div>
+            <div class="img-container">
+                <img src="images/work/weedDetection/1.jpeg" alt="Flask Frontend screenshot 1">
+                <img src="images/work/weedDetection/2.jpeg" alt="Flask Frontend screenshot 2">
+                <img src="images/work/weedDetection/3.jpeg" alt="Flask Frontend screenshot 3">
             </div>
-
-
-
-        
             <!-- Closing Remarks -->
             <p><i class="fa-regular fa-circle"></i>&nbsp
                 I am extremely grateful to Professor <a href="https://www.linkedin.com/in/khosravi/"><span class="link">Sina K. Maram</span></a> for his invaluable guidance throughout this exciting journey. Our exploration into the world of object segmentation using YOLOv8 technology has opened our eyes to its immense potential, and we look forward to further research and development in this field.
@@ -143,7 +69,7 @@
                 For more technical details about our project, feel free to check out my <a href="https://github.com/yashspatel/WeedDetection-Using-YOLOv8-Instance-Segmentation"><span class="link">Github repository</span></a>.
             </p>
 
-            <p><br><br><br><br><span>Your feedback matters a lot!</span></p>
+            <p><span>Your feedback matters a lot!</span></p>
 
             
          <!-- Feedback Form -->
@@ -172,14 +98,14 @@
                 msg.innerHTML = "Feedback sent successfully!"
                 setTimeout(function(){
                     msg.innerHTML = ""
-                }, 5)
+                }, 5000)
                 form.reset()
             })
             .catch(error => console.error('Error!', error.message))
       })
     </script>
 <!-- For Image slider -->
-<!--      <script>
+     <script>
         var sliderImages = Array.from(document.querySelectorAll(".slider img"));
         var currentIndex = 0;
 
@@ -204,71 +130,6 @@
         });
 
         showImage(currentIndex);  // Show the first image
-    </script> -->
-    <script>
-       let slideIndex = 1;
-showSlides(slideIndex);
-
-// Next/previous controls
-function plusSlides(n) {
-  showSlides(slideIndex += n);
-}
-
-// Thumbnail image controls
-function currentSlide(n) {
-  showSlides(slideIndex = n);
-}
-
-function showSlides(n) {
-  let i;
-  let slides = document.getElementsByClassName("mySlides1");
-  let dots = document.getElementsByClassName("demo1");
-  let captionText = document.getElementById("caption");
-  if (n > slides.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += " active";
-  captionText.innerHTML = dots[slideIndex-1].alt;
-}
-    </script>
-
-    <script>
-       let slideIndex = 1;
-showSlides(slideIndex);
-
-// Next/previous controls
-function plusSlides(n) {
-  showSlides(slideIndex += n);
-}
-
-// Thumbnail image controls
-function currentSlide(n) {
-  showSlides(slideIndex = n);
-}
-
-function showSlides(n) {
-  let i;
-  let slides = document.getElementsByClassName("mySlides2");
-  let dots = document.getElementsByClassName("demo2");
-  let captionText = document.getElementById("caption");
-  if (n > slides.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += " active";
-  captionText.innerHTML = dots[slideIndex-1].alt;
-}
     </script>
 </body>
 </html>
