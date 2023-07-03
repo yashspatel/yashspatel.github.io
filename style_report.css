@@ -81,6 +81,10 @@ img, video {
     margin: 0 auto 20px;
 }
 
+img{
+	border: 1px solid #080808;
+}
+
 /* .img-container {
     display: flex;
     justify-content: space-around;
