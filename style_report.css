@@ -25,7 +25,7 @@ body {
 .container {
 	max-width: 1200px;
 	margin: auto;
-	padding: 40px;
+	padding: 20px;
 	background-color: #fff;
 	border-radius: 10px;
 }
@@ -33,7 +33,6 @@ body {
 
 
 h1 {
-	color: #ff3131;
 	text-align: center;
     font-size: 2.8em;
     margin-top: 0;
@@ -43,12 +42,11 @@ h1 {
 }
 
 h2 {
-	font-style: italic;
 	text-align: center;
 	/*color: #ff3131;*/
 	color: #080808;
 	font-weight: normal;
-    font-size: 1.5em;
+    font-size: 1.8em;
     margin-top: 20px;
     margin-bottom: 10px;
 }
@@ -83,10 +81,6 @@ img, video {
     margin: 0 auto 20px;
 }
 
-img{
-	border: 1px solid #080808;
-}
-
 /* .img-container {
     display: flex;
     justify-content: space-around;
@@ -97,107 +91,41 @@ img{
     max-width: 30%;
     margin: 10px;
 } */
-/*--------------------Image CSS ----------------------------*/
- * {
-  box-sizing: border-box;
-}
+.slider {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow: hidden;
+            height: auto;
+            position: relative;
+        }
+        .slider img {
+            max-width: 30%;
+            height: auto;
+            display: none;
+        }
+        .slider img.active {
+            display: block;
+        }
+        .slider-indicator {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            padding: 10px 0;
+        }
+        .slider-indicator button {
+            border: none;
+            background-color: #080808;
+            border-radius: 50%;
+            width: 12px;
+            height: 12px;
+	    box-sizing: border-box;
+        }
+        .slider-indicator button.active {
+            background-color: #ff3131;
+        }
 
-/* Position the image image-slider (needed to position the left and right arrows) */
-.image-slider {
-  position: relative;
-}
-
-/* Hide the images by default */
-.mySlides1 {
-  display: none;
-}
-
-.mySlides2 {
-  display: none;
-}
-
-/* Add a pointer when hovering over the thumbnail images */
-.cursor {
-  cursor: pointer;
-}
-
-/* Next & previous buttons */
-.prev,
-.next {
-  cursor: pointer;
-  position: absolute;
-  top: 40%;
-  width: auto;
-  padding: 16px;
-  margin-top: -50px;
-  color: white;
-  font-weight: bold;
-  font-size: 20px;
-  border-radius: 0 3px 3px 0;
-  user-select: none;
-  -webkit-user-select: none;
-}
-
-/* Position the "next button" to the right */
-.next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
-}
-
-/* On hover, add a black background color with a little bit see-through */
-.prev:hover,
-.next:hover {
-  background-color: rgba(0, 0, 0, 0.8);
-}
-
-/* Number text (1/3 etc) */
-.numbertext {
-  color: #f2f2f2;
-  font-size: 12px;
-  padding: 8px 12px;
-  position: absolute;
-  top: 0;
-}
-
-/* image-slider for image text */
-.caption-image-slider {
-  text-align: center;
-  background-color: #222;
-  padding: 2px 16px;
-  color: white;
-}
-
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-/* Six columns side by side */
-.column {
-  float: left;
-  width: 16.66%;
-}
-
-/* Add a transparency effect for thumnbail images */
-.demo1 {
-  opacity: 0.6;
-}
-
-.active,
-.demo1:hover {
-  opacity: 1;
-}
-
-.demo2 {
-  opacity: 0.6;
-}
-
-.active,
-.demo2:hover {
-  opacity: 1;
-}
-/* ------------------------Image CSS End -------------------- */
 .btn {
 	margin: 50px auto;
 	width: fit-content;
