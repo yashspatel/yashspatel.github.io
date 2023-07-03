@@ -25,7 +25,7 @@ body {
 .container {
 	max-width: 1200px;
 	margin: auto;
-	padding: 20px;
+	padding: 40px;
 	background-color: #fff;
 	border-radius: 10px;
 }
@@ -33,6 +33,7 @@ body {
 
 
 h1 {
+	color: #ff3131;
 	text-align: center;
     font-size: 2.8em;
     margin-top: 0;
@@ -43,7 +44,7 @@ h1 {
 
 h2 {
 	text-align: center;
-	/*color: #ff3131;*/
+	font-style: italic;
 	color: #080808;
 	font-weight: normal;
     font-size: 1.8em;
@@ -79,6 +80,9 @@ img, video {
     height: auto;
     display: block;
     margin: 0 auto 20px;
+}
+img{
+	border: 1px solid #080808;
 }
 
 /* .img-container {
