@@ -105,7 +105,7 @@
       })
     </script>
 <!-- For Image slider -->
-     <script>
+<!--      <script>
         var sliderImages = Array.from(document.querySelectorAll(".slider img"));
         var currentIndex = 0;
 
@@ -127,6 +127,37 @@
                 showImage(currentIndex);
             });
             indicator.appendChild(btn);
+        });
+
+        showImage(currentIndex);  // Show the first image
+    </script> -->
+    <script>
+        var sliderImages = Array.from(document.querySelectorAll(".slider img"));
+        var currentIndex = 0;
+
+        function showImage(index) {
+            sliderImages.forEach(function(img, i) {
+                img.classList.toggle("active", i === index);
+            });
+            Array.from(document.querySelectorAll(".slider-indicator svg")).forEach(function(svg, i) {
+                svg.firstElementChild.setAttribute("fill", i === index ? "#262626" : "#ff3131");
+            });
+        }
+
+        // Insert indicator SVGs
+        var indicator = document.querySelector(".slider-indicator");
+        sliderImages.forEach(function(img, index) {
+            var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+            var circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+            circle.setAttribute("cx", "5");
+            circle.setAttribute("cy", "5");
+            circle.setAttribute("r", "5");
+            svg.appendChild(circle);
+            svg.addEventListener("click", function() {
+                currentIndex = index;
+                showImage(currentIndex);
+            });
+            indicator.appendChild(svg);
         });
 
         showImage(currentIndex);  // Show the first image
