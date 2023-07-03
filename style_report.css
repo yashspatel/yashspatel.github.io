@@ -108,7 +108,11 @@ img{
 }
 
 /* Hide the images by default */
-.mySlides {
+.mySlides1 {
+  display: none;
+}
+
+.mySlides2 {
   display: none;
 }
 
@@ -176,12 +180,21 @@ img{
 }
 
 /* Add a transparency effect for thumnbail images */
-.demo {
+.demo1 {
   opacity: 0.6;
 }
 
 .active,
-.demo:hover {
+.demo1:hover {
+  opacity: 1;
+}
+
+.demo2 {
+  opacity: 0.6;
+}
+
+.active,
+.demo2:hover {
   opacity: 1;
 }
 /* ------------------------Image CSS End -------------------- */
