@@ -14,6 +14,9 @@ body {
 	color: #ff3131;
 	font-size: 12px;
 }
+.fa-circle{
+	color: #fff;
+}
 .fa-solid.fa-arrow-left{
 	cursor: pointer;
 	font-size: 20px;
