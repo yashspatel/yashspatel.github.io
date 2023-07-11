@@ -26,6 +26,7 @@ body {
 	max-width: 1200px;
 	margin: auto;
 	padding: 40px;
+/* 	background-color: #fff; */
 	background-color: #080808;
 	border-radius: 10px;
 }
@@ -33,6 +34,7 @@ body {
 
 
 h1 {
+/* 	color: #080808; */
 	color: #fff;
 	text-align: center;
     font-size: 2.8em;
@@ -53,6 +55,7 @@ h2 {
 }
 
 h3 {
+/* 	color: #ff3131; */
 	color: #ff3131;
     font-size: 1.2em;
     /*font-weight: normal;*/
@@ -61,6 +64,7 @@ h3 {
 }
 
 p {
+	color: #262626;
 	font-size: 1.2em;
     line-height: 2;
     font-weight: normal;
