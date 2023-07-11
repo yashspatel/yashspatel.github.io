@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE-edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sentiment Analysis</title>
+    <title>Sales Analysis</title>
     <link rel="stylesheet" type="text/css" href="style_report.css">
     <script src="https://kit.fontawesome.com/ee4434438c.js" crossorigin="anonymous"></script>
 </head>
@@ -13,30 +13,51 @@
         <i class="fa-solid fa-arrow-left" onclick="history.back()"></i>
         
             <!-- Project Title -->
-            <h1 class="sub-title">Sentiment Analysis of Gun Ownership without a License</h1>
+            <h1 class="sub-title">Offline Bookstore Sales Analysis</h1>
             <!-- Sub-title -->
-            <h2>Understanding public sentiments and opinions on the recently implemented legislation regarding gun ownership through NLP techniques.<br><br></h2>
+            <h2>Transforming sales data into actionable insights for an offline bookstore through an interactive and user-friendly Power BI dashboard.<br><br></h2>
 
             
             <h3>Overview</h3>
             <p>
 <!--                 <i class="fa-regular fa-circle"></i>&nbsp -->
-                In this NLP project, we applied Vader, a Natural Language Processing approach, to perform sentiment analysis on Twitter posts from individuals in Indiana, United States. Our goal was to gain insights into their opinions and emotions regarding the newly implemented legislation on gun ownership without a license.
+                In response to a significant increase in sales at an offline bookstore, we embarked on the Offline Bookstore Sales Analysis project. The existing manual data management process using Excel became cumbersome as the data grew. Our objective was to provide a solution that would enable efficient data analysis and visualization. By leveraging the power of Power BI, we transformed the bookstore's Excel database into an interactive dashboard that showcased key insights and facilitated informed decision-making.
             </p>
             <h3 style="font-size: 1.5em;">Examining Public Sentiments</h3>
-            <h3>Pre and Post-Implementation Analysis</h3>
+            <h3>Transforming the Data</h3>
             <p>
-              To comprehensively understand the sentiments surrounding gun ownership, we conducted a two-phase examination. In the pre-implementation analysis, we observed negative reactions among individuals expressing concerns about the new legislation. However, in the post-implementation analysis, we found a notable decrease in negative sentiment. There were very few negative tweets indicating concerns about the law's impact, suggesting that public opinion became more positive after the implementation.
+              To address the data management challenges, we first assessed the existing Excel database and recognized the need for a more scalable and user-friendly solution. We carefully transformed the database, ensuring data integrity and accuracy. By cleaning the data, we eliminated inconsistencies and errors, preparing a solid foundation for analysis.
             </p>
            
-            <h3>Positive Impact on Gun Crime</h3>
+            <h3 style="font-size: 1.5em">Interactive Dashboard</h3>
+            <img src="images/bookstore/1.png" alt="Image">
             <p>
-                In addition to sentiment analysis, we also analyzed gun crime in Indiana after the law's implementation. The analysis revealed a decrease in the number of gun crime incidents, as evidenced by a reduction in tweets related to gun crime. This finding suggests a positive impact of the legislation, as fewer people were tweeting about gun crimes, indicating a potential decrease in such incidents.
+                The resulting Power BI dashboard empowered the store owner with an intuitive and interactive interface for exploring and understanding sales data. The dashboard offered multiple features and visualizations that provided valuable insights.
+            </p>
+
+            <h3>Payment Method Analysis</h3>
+            <p>
+                By utilizing checkboxes, the store owner could compare sales generated from different payment methods (Credit and Paypal). This feature enabled a quick understanding of customer preferences and the effectiveness of various payment options.
+            </p>
+            
+            <h3>Source Analysis</h3>
+            <p>
+                Another set of checkboxes allowed the store owner to analyze sales based on the source of the purchase, whether it was from the store's website or through email campaigns. This feature helped evaluate the impact of different sales channels and marketing strategies.
+            </p>
+
+            <h3>Regional Analysis</h3>
+            <p>
+                Multiple select buttons facilitated a region-specific analysis, enabling the store owner to focus on specific areas (North, West, East, South). This feature offered insights into sales patterns and average purchase amounts in different regions, supporting targeted marketing efforts.
             </p>
            
             <h3>Conclusion</h3>
             <p>
-              Through our NLP project, we gained valuable insights into the sentiments and opinions of individuals in Indiana regarding the legislation on gun ownership without a license. The post-implementation analysis showed a notable decrease in negative sentiment, indicating a shift towards more positive public opinion. Furthermore, the analysis of gun crime tweets suggested a potential positive impact, with a decrease in the number of incidents mentioned on social media. These findings provide valuable information for policymakers and stakeholders in understanding the public response and potential impact of the legislation.
+              The Offline Bookstore Sales Analysis project successfully transformed the bookstore's Excel database into an interactive Power BI dashboard. By leveraging the dashboard's features, the store owner gained valuable insights into sales performance, customer preferences, and regional trends. This data-driven approach allowed for informed decision-making and the optimization of marketing strategies. The user-friendly nature of the dashboard streamlined data analysis and facilitated ongoing monitoring of sales data.
+            </p>
+             <!-- GitHub Link -->
+            <p>
+<!--                 <i class="fa-regular fa-circle"></i>&nbsp -->
+                For more technical details about my project, feel free to check out my <a href="https://github.com/yashspatel/offline-bookstore-sales-analysis"><span class="link">Github repository</span></a>.
             </p>
 
            <p><br><br><br><span>Your feedback matters a lot!</span></p>
@@ -44,7 +65,7 @@
             
          <!-- Feedback Form -->
             <form name="project-feedback">
-                <input type="hidden" name="Project" value="Sentiment-Analysis-of-Gun-Ownership-without-License">
+                <input type="hidden" name="Project" value="Offline-Bookstore-Sales-Analysis">
                 <input type="text" name="Name" placeholder="Your Name" required>
                 <textarea name="Feedback" rows="6" placeholder="Your Feedback" required></textarea>
                 <button type="submit" class="btn submit" >Submit</button>
