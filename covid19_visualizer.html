@@ -1,1 +1,165 @@
-html  
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weed Detection</title>
+    <link rel="stylesheet" type="text/css" href="style_report.css">
+    <script src="https://kit.fontawesome.com/ee4434438c.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <i class="fa-solid fa-arrow-left" onclick="history.back()"></i>
+        
+            <!-- Project Title -->
+            <h1 class="sub-title">Global COVID-19 Impact Visualizer</h1>
+            <!-- Sub-title -->
+            <h2>Stay informed about the global COVID-19 pandemic with real-time insights and intuitive visualizations<br><br></h2>
+
+            
+            <h3>First Page</h3>
+            <p>
+<!--                 <i class="fa-regular fa-circle"></i>&nbsp -->
+                Welcome to the Global COVID-19 Impact Visualizer!
+            </p>
+            <img src="images/work/covid19/1.jpeg" alt="First Page">
+            <h3>Second Page</h3>
+            <p>
+              The COVID-19 pandemic has impacted the world in unprecedented ways. Stay updated on the latest statistics, trends, and insights with our interactive dashboard.
+            </p>
+            <img src="images/work/covid19/2.jpeg" alt="Second Page">
+            <h3>Third Page</h3>
+            <img src="images/work/covid19/3.jpeg" alt="Second Page">
+
+
+            <h3>Real-Time Data Insights</h3>
+            <p>
+              Stay up-to-date with accurate and reliable information through real-time data insights. The dashboard showcases the total confirmed cases, deaths, and recoveries, allowing you to grasp the scale and severity of the pandemic.
+            </p>
+
+            <h3>Country-Specific Data</h3>
+            <p>
+              Explore the impact of COVID-19 on a country level. By selecting a specific country, you can dive deeper into its statistics, including active cases, recoveries, and more. This granular view helps you understand the local situation and trends.
+            </p>
+
+            <h3>Geographic Visualization</h3>
+            <p>
+              Our dashboard offers intuitive geographic visualization, presenting the global impact of the pandemic on a map. Color-coded markers highlight different regions, reflecting the severity of active cases. This visual representation allows for quick and easy comprehension of the global spread.
+            </p>
+
+            <h3>Insightful Graphs</h3>
+            <p>
+              Gain deeper insights through informative graphs that visually depict the trends and patterns of COVID-19 cases. The graphs help you identify significant changes, understand the trajectory of the pandemic, and make informed decisions.
+            </p>
+
+            <h3>Conclusions</h3>
+            <p>
+              The Global COVID-19 Impact Visualizer provides a user-friendly platform to track the global impact of the pandemic. By offering real-time insights, country-specific data, and intuitive visualizations, this dashboard empowers users to stay informed and make informed decisions.
+
+We invite you to explore the dashboard and gain valuable insights into the ongoing global crisis.
+              Please checkout the github repository.
+            </p>
+          
+            
+        <div class="slider">
+<!--             <div class="img-container"> -->
+                <img src="images/work/weedDetection/4.jpeg" class="active" alt="Video output screenshot 1">
+                <img src="images/work/weedDetection/5.jpeg" alt="Video output screenshot 2">
+<!--             </div> -->
+            <div class="slider-indicator">
+                <!-- Buttons will be inserted here by JavaScript -->
+            </div>
+        </div>
+            <!-- Images Display -->
+            <h3>Flask framework integration</h3>
+            <p>
+<!--                 <i class="fa-regular fa-circle"></i>&nbsp -->
+                Furthermore, we integrated the trained model with the Flask Framework, enhancing its versatility. Here are some screenshots of our Flask Frontend framework.
+            </p>
+            <div class="img-container">
+                <img src="images/work/weedDetection/1.jpeg" alt="Flask Frontend screenshot 1">
+                <img src="images/work/weedDetection/2.jpeg" alt="Flask Frontend screenshot 2">
+                <img src="images/work/weedDetection/3.jpeg" alt="Flask Frontend screenshot 3">
+            </div>
+            <!-- Closing Remarks -->
+            <p>
+<!--                 <i class="fa-regular fa-circle"></i>&nbsp -->
+                I am extremely grateful to Professor <a href="https://www.linkedin.com/in/khosravi/"><span class="link">Sina K. Maram</span></a> for his invaluable guidance throughout this exciting journey. Our exploration into the world of object segmentation using YOLOv8 technology has opened our eyes to its immense potential, and we look forward to further research and development in this field.
+            </p>
+
+            <!-- GitHub Link -->
+            <p>
+<!--                 <i class="fa-regular fa-circle"></i>&nbsp -->
+                For more technical details about our project, feel free to check out my <a href="https://github.com/yashspatel/WeedDetection-Using-YOLOv8-Instance-Segmentation"><span class="link">Github repository</span></a>.
+            </p>
+
+            <p><br><br><br><span>Your feedback matters a lot!</span></p>
+
+            
+         <!-- Feedback Form -->
+            <form name="project-feedback">
+                <input type="hidden" name="Project" value="WeedDetection-Using-YOLOv8-Instance-Segmentation">
+                <input type="text" name="Name" placeholder="Your Name" required>
+                <textarea name="Feedback" rows="6" placeholder="Your Feedback" required></textarea>
+                <button type="submit" class="btn submit" >Submit</button>
+            </form>
+            <span id="msg"></span>
+            
+
+            <!-- Back Button -->
+            <button class="btn" onclick="history.back()">Back to home</button>
+    </div>
+
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbzPZQCbH19G0GcRC8tt3t-0LavpFSoBag1pezpAzYLUoRTKB9DkU2OVXWAacEaltEOChQ/exec'
+        const form = document.forms['project-feedback']
+        const msg = document.getElementById("msg")
+
+        form.addEventListener('submit', e => {
+            e.preventDefault()
+            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => {
+                msg.innerHTML = "Feedback sent successfully!"
+                setTimeout(function(){
+                    msg.innerHTML = ""
+                }, 5000)
+                form.reset()
+            })
+            .catch(error => console.error('Error!', error.message))
+      })
+    </script>
+<!-- For Image slider -->
+     <script>
+        var sliderImages = Array.from(document.querySelectorAll(".slider img"));
+        var currentIndex = 0;
+
+        function showImage(index) {
+            sliderImages.forEach(function(img, i) {
+                img.classList.toggle("active", i === index);
+            });
+            Array.from(document.querySelectorAll(".slider-indicator svg")).forEach(function(svg, i) {
+                svg.firstElementChild.setAttribute("fill", i === index ? "#ff3131" : "#262626");
+            });
+        }
+
+        // Insert indicator SVGs
+        var indicator = document.querySelector(".slider-indicator");
+        sliderImages.forEach(function(img, index) {
+            var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+            var circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+            circle.setAttribute("cx", "5");
+            circle.setAttribute("cy", "5");
+            circle.setAttribute("r", "5");
+            svg.appendChild(circle);
+            svg.addEventListener("click", function() {
+                currentIndex = index;
+                showImage(currentIndex);
+            });
+            indicator.appendChild(svg);
+        });
+
+        showImage(currentIndex);  // Show the first image
+    </script>
+</body>
+</html>
