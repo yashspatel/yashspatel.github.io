@@ -285,7 +285,7 @@ A data storytelling service could include:<br><br>
 			</div>
 		</div>
 		<a id="seeMoreBtn" onclick="showAllProjects()" class="btn">See more</a>
-		<a id="showLessBtn" onclick="showLessProjects()" class="btn hidden">Show Less</a>
+		<a id="showLessBtn" onclick="showLessProjects()" class="btn hidden2">Show Less</a>
 	</div>
 </div>
 <!-- ----------contact--------- -->
@@ -392,9 +392,12 @@ if (os === 'android' || os === 'other') {
   
   var seeMoreBtn = document.getElementById("seeMoreBtn");
   seeMoreBtn.style.display = "none";
+  
+  var showLessBtn = document.getElementById("showLessBtn");
+  showLessBtn.style.display = "inline-block";
 }
 
-	function showLessProjects() {
+function showLessProjects() {
   var hiddenProjects = document.getElementsByClassName("hidden");
   for (var i = 0; i < hiddenProjects.length; i++) {
     hiddenProjects[i].style.display = "none";
@@ -406,6 +409,7 @@ if (os === 'android' || os === 'other') {
   var showLessBtn = document.getElementById("showLessBtn");
   showLessBtn.style.display = "none";
 }
+
 </script>
 
 <script type="text/javascript">
