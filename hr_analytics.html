@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HR Analytics Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="style_report.css">
+    <script src="https://kit.fontawesome.com/ee4434438c.js" crossorigin="anonymous"></script>
+    <link rel="icon" href="images/tab.png">
+</head>
+<body>
+    <div class="container">
+        <!--         <i class="fa-solid fa-arrow-left" onclick="history.back()"></i> -->
+        <i class="fa-solid fa-arrow-left" onclick="window.location.href='https://yashspatel.netlify.app/#portfolio'"></i>
+        
+            <!-- Project Title -->
+            <h1 class="sub-title">HR Analytics Dashboard in Tableau</h1>
+            <!-- Sub-title -->
+            <h2>This interactive dashboard offers a comprehensive view of key HR metrics and insights, empowering organizational decision-making.<br><br></h2>
+
+            <img src="images/hr_analytics.png" alt="First Page">
+            
+            
+<!--                 <i class="fa-regular fa-circle"></i>&nbsp -->
+                
+
+                
+
+<h3 style="font-size: 1.5em;">Data at your fingertips:</h3><br>
+<p>Dive into employee data encompassing departments, demographics, job satisfaction, and more. 
+  Track trends and patterns with visually compelling charts and graphs. 
+  Identify strengths and areas for improvement based on data-driven analysis.<br></p>
+
+<h3 style="font-size: 1.5em;">User-friendly navigation:</h3><br>
+<p>Explore data with ease through intuitive filters and interactive elements. 
+  Drill down into specific details by department, job role, or other relevant criteria. 
+  Export data reports for further analysis and sharing.<br></p>
+
+<h3 style="font-size: 1.5em;">Designed for clarity:</h3><br>
+<p>Modern and engaging visual design fosters data comprehension and exploration. 
+  Clear and concise visualizations communicate complex information effectively. 
+  Customizable layout enhances user experience and facilitates personalized insights.<br></p>
+ 
+<h3 style="font-size: 1.5em;">Benefits across the organization:</h3><br>
+<p>HR professionals gain deeper understanding of workforce dynamics and trends. 
+  Management teams make informed decisions based on data-driven insights. Employees engage with a transparent and accessible data platform.<br></p>
+
+<p>This dashboard serves as a valuable tool for anyone seeking to leverage HR data for strategic advantage.<br></p>
+
+
+            
+            
+
+            <!-- GitHub Link -->
+            <p>
+<!--                 <i class="fa-regular fa-circle"></i>&nbsp -->
+                For more technical details about my project, feel free to check out my <a href="https://github.com/yashspatel/Human-Resources-Analytics-Tableau-Visualization"><span class="link">Github repository</span></a> and <a href="https://www.linkedin.com/in/yashsanjaykumarpatel/"><span class="link">LinkedIn Profile</span></a>.
+            </p>
+
+            <p><br><br><br><span>Your feedback matters a lot!</span></p>
+
+            
+         <!-- Feedback Form -->
+            <form name="project-feedback">
+                <input type="hidden" name="Project" value="HR-Analytics-Dashboard">
+                <input type="text" name="Name" placeholder="Your Name" required>
+                <textarea name="Feedback" rows="6" placeholder="Your Feedback" required></textarea>
+                <button type="submit" class="btn submit" >Submit</button>
+            </form>
+            <span id="msg"></span>
+            
+
+            <!-- Back Button -->
+<!--             <button class="btn" onclick="history.back()">Back to home</button> -->
+            <button class="btn" onclick="window.location.href='index.html'">Back to home</button>
+    </div>
+
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbzPZQCbH19G0GcRC8tt3t-0LavpFSoBag1pezpAzYLUoRTKB9DkU2OVXWAacEaltEOChQ/exec'
+        const form = document.forms['project-feedback']
+        const msg = document.getElementById("msg")
+
+        form.addEventListener('submit', e => {
+            e.preventDefault()
+            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => {
+                msg.innerHTML = "Feedback sent successfully!"
+                setTimeout(function(){
+                    msg.innerHTML = ""
+                }, 5000)
+                form.reset()
+            })
+            .catch(error => console.error('Error!', error.message))
+      })
+    </script>
+<!-- For Image slider -->
+     <script>
+        var sliderImages = Array.from(document.querySelectorAll(".slider img"));
+        var currentIndex = 0;
+
+        function showImage(index) {
+            sliderImages.forEach(function(img, i) {
+                img.classList.toggle("active", i === index);
+            });
+            Array.from(document.querySelectorAll(".slider-indicator svg")).forEach(function(svg, i) {
+                svg.firstElementChild.setAttribute("fill", i === index ? "#ff3131" : "#262626");
+            });
+        }
+
+        // Insert indicator SVGs
+        var indicator = document.querySelector(".slider-indicator");
+        sliderImages.forEach(function(img, index) {
+            var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+            var circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+            circle.setAttribute("cx", "5");
+            circle.setAttribute("cy", "5");
+            circle.setAttribute("r", "5");
+            svg.appendChild(circle);
+            svg.addEventListener("click", function() {
+                currentIndex = index;
+                showImage(currentIndex);
+            });
+            indicator.appendChild(svg);
+        });
+
+        showImage(currentIndex);  // Show the first image
+    </script>
+</body>
+</html>
