@@ -22,7 +22,11 @@ body{
 .container{
 	padding: 10px 10%;
 }
-
+.headline{
+	style="font-family: 'Times New Roman', Times, serif;
+	font-weight: 10; 
+	font-stretch: expanded;
+}
 nav{
 	display: flex;
 	align-items: center;
