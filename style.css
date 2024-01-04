@@ -266,9 +266,9 @@ nav ul li a:hover::after{
 }
 
 .services-list div h4{
-	font-size: 25px;
-	font-weight: 400;
-	margin-bottom: 12px;
+	font-size: 15px;
+	font-weight: 300;
+	margin-bottom: 10px;
 }
 
 .services-list div a{
