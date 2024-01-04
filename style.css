@@ -222,11 +222,6 @@ nav ul li a:hover::after{
 .right {
   width: 75%;
 }
-.recommendation-row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
 
 /*------------services----------------*/
 .info-popup {
