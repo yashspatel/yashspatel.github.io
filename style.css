@@ -209,19 +209,6 @@ nav ul li a:hover::after{
 	font-weight: 300;
 	margin-bottom: 10px;
 }
-.recommendation-column {
-  float: left;
-  padding: 10px;
-  height: 300px; /* Should be removed. Only for demonstration */
-}
-
-.left {
-  width: 25%;
-}
-
-.right {
-  width: 75%;
-}
 
 /*------------services----------------*/
 .info-popup {
