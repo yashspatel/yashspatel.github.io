@@ -156,6 +156,32 @@ nav ul li a:hover::after{
 .tab-contents.active-tab{
 	display: block;
 }
+
+/* ----------------recommendations------------ */
+.services-list div h4{
+	font-size: 15px;
+	font-weight: 300;
+	margin-bottom: 10px;
+}
+.recommendation-column {
+  float: left;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
+}
+
+.left {
+  width: 25%;
+}
+
+.right {
+  width: 75%;
+}
+.recommendation-row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
 /*------------services----------------*/
 .info-popup {
     display: none;
@@ -265,11 +291,6 @@ nav ul li a:hover::after{
 	margin-bottom: 15px;
 }
 
-.services-list div h4{
-	font-size: 15px;
-	font-weight: 300;
-	margin-bottom: 10px;
-}
 
 .services-list div a{
 	text-decoration: none;
