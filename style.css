@@ -195,8 +195,7 @@ nav ul li a:hover::after{
 .recommendation{
 	cursor: pointer;
 	position: relative;
-	text-align: justify;
-  	text-justify: inter-word;
+	
 }
 
 .recommendations-list div h4{
@@ -207,6 +206,8 @@ nav ul li a:hover::after{
 .recommendations-list div p{
 	font-size: 14px;
 	font-weight: 10;
+	text-align: justify;
+  	text-justify: inter-word;
 }
 
 .avatar {
