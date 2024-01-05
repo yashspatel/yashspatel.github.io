@@ -206,7 +206,7 @@ nav ul li a:hover::after{
 }
 .recommendations-list div p{
 	font-size: 14px;
-	font-weight: 200;
+	font-weight: 100;
 }
 
 .avatar {
