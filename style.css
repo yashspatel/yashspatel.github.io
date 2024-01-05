@@ -201,6 +201,7 @@ nav ul li a:hover::after{
 	transform: translateY(-10px);	
 }
 .recommendation{
+	cursor: pointer;
 	position: relative;
 }
 
