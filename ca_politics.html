@@ -92,6 +92,20 @@
             </p>
 
         <h3 style="font-size: 1.65em;">4. Screenshots:</h3>
+        <div class="img-container">
+                <img src="images/ca_politics_raw.jpg" alt="Raw Data">
+                <p>
+                    Raw Data: Scraped and stored in AWS S3.
+                </p>
+                <img src="images/ca_politics_transformed.jpg" alt="Transformed Data">
+                <p>
+                    Transformed Data: Cleaned and transformed using pandas and nltk (VADER, punkt) and stored in AWS S3.
+                </p>
+                <img src="images/ca_politics_dashboard.jpg" alt="PowerBI Dashboard">
+                <p>
+                    Dashboard: Designed and visualized in Microsoft PowerBI.
+                </p>
+            </div>
 
         <h3 style="font-size: 1.65em;">5. Technologies Used:</h3>
         <p>
@@ -116,7 +130,7 @@
             
          <!-- Feedback Form -->
             <form name="project-feedback">
-                <input type="hidden" name="Project" value="Sentiment-Analysis-of-Gun-Ownership-without-License">
+                <input type="hidden" name="Project" value="Canadian-Politics-Sentiment-Analytics">
                 <input type="text" name="Name" placeholder="Your Name" required>
                 <textarea name="Feedback" rows="6" placeholder="Your Feedback" required></textarea>
                 <button type="submit" class="btn submit" >Submit</button>
