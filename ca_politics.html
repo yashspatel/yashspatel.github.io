@@ -1,1 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentiment Analysis</title>
+    <link rel="stylesheet" type="text/css" href="style_report.css">
+    <script src="https://kit.fontawesome.com/ee4434438c.js" crossorigin="anonymous"></script>
+    <link rel="icon" href="images/tab.png">
+</head>
+<body>
+    <div class="container">
+        <!--         <i class="fa-solid fa-arrow-left" onclick="history.back()"></i> -->
+        <i class="fa-solid fa-arrow-left" onclick="window.location.href='https://yashspatel.netlify.app/#portfolio'"></i>
+        
+            <!-- Project Title -->
+            <h1 class="sub-title">Sentiment Analysis of Gun Ownership without a License</h1>
+            <!-- Sub-title -->
+            <h2>Public sentiments and opinions on the recently implemented legislation regarding gun ownership through NLP techniques.<br><br></h2>
 
+            
+            <h3>Overview</h3>
+            <p>
+<!--                 <i class="fa-regular fa-circle"></i>&nbsp -->
+                In this NLP project, we applied Vader, a Natural Language Processing approach, to perform sentiment analysis on Twitter posts from individuals in Indiana, United States. Our goal was to gain insights into their opinions and emotions regarding the newly implemented legislation on gun ownership without a license.
+            </p>
+            <h3 style="font-size: 1.5em;">Examining Public Sentiments</h3>
+            <h3>Pre and Post-Implementation Analysis</h3>
+            <p>
+              To comprehensively understand the sentiments surrounding gun ownership, we conducted a two-phase examination. In the pre-implementation analysis, we observed negative reactions among individuals expressing concerns about the new legislation. However, in the post-implementation analysis, we found a notable decrease in negative sentiment. There were very few negative tweets indicating concerns about the law's impact, suggesting that public opinion became more positive after the implementation.
+            </p>
+           
+            <h3>Positive Impact on Gun Crime</h3>
+            <p>
+                In addition to sentiment analysis, we also analyzed gun crime in Indiana after the law's implementation. The analysis revealed a decrease in the number of gun crime incidents, as evidenced by a reduction in tweets related to gun crime. This finding suggests a positive impact of the legislation, as fewer people were tweeting about gun crimes, indicating a potential decrease in such incidents.
+            </p>
+           
+            <h3>Conclusion</h3>
+            <p>
+              Through our NLP project, we gained valuable insights into the sentiments and opinions of individuals in Indiana regarding the legislation on gun ownership without a license. The post-implementation analysis showed a notable decrease in negative sentiment, indicating a shift towards more positive public opinion. Furthermore, the analysis of gun crime tweets suggested a potential positive impact, with a decrease in the number of incidents mentioned on social media. These findings provide valuable information for policymakers and stakeholders in understanding the public response and potential impact of the legislation.
+            </p>
+
+
+        <p>
+<!--                 <i class="fa-regular fa-circle"></i>&nbsp -->
+                For more technical details about our project, feel free to check out my <a href="https://github.com/yashspatel/yashspatel.github.io/blob/main/sentiment_analysis.html"><span class="link">Github repository</span></a> and <a href="https://www.linkedin.com/in/yashsanjaykumarpatel/"><span class="link">LinkedIn Profile</span></a>.
+            </p>
+           <p><br><br><br><span>Your feedback matters a lot!</span></p>
+
+            
+         <!-- Feedback Form -->
+            <form name="project-feedback">
+                <input type="hidden" name="Project" value="Sentiment-Analysis-of-Gun-Ownership-without-License">
+                <input type="text" name="Name" placeholder="Your Name" required>
+                <textarea name="Feedback" rows="6" placeholder="Your Feedback" required></textarea>
+                <button type="submit" class="btn submit" >Submit</button>
+            </form>
+            <span id="msg"></span>
+            
+
+            <!-- Back Button -->
+<!--             <button class="btn" onclick="history.back()">Back to home</button> -->
+            <button class="btn" onclick="window.location.href='index.html'">Back to home</button>
+    </div>
+
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbzPZQCbH19G0GcRC8tt3t-0LavpFSoBag1pezpAzYLUoRTKB9DkU2OVXWAacEaltEOChQ/exec'
+        const form = document.forms['project-feedback']
+        const msg = document.getElementById("msg")
+
+        form.addEventListener('submit', e => {
+            e.preventDefault()
+            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => {
+                msg.innerHTML = "Feedback sent successfully!"
+                setTimeout(function(){
+                    msg.innerHTML = ""
+                }, 5000)
+                form.reset()
+            })
+            .catch(error => console.error('Error!', error.message))
+      })
+    </script>
+<!-- For Image slider -->
+     <script>
+        var sliderImages = Array.from(document.querySelectorAll(".slider img"));
+        var currentIndex = 0;
+
+        function showImage(index) {
+            sliderImages.forEach(function(img, i) {
+                img.classList.toggle("active", i === index);
+            });
+            Array.from(document.querySelectorAll(".slider-indicator svg")).forEach(function(svg, i) {
+                svg.firstElementChild.setAttribute("fill", i === index ? "#ff3131" : "#262626");
+            });
+        }
+
+        // Insert indicator SVGs
+        var indicator = document.querySelector(".slider-indicator");
+        sliderImages.forEach(function(img, index) {
+            var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+            var circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+            circle.setAttribute("cx", "5");
+            circle.setAttribute("cy", "5");
+            circle.setAttribute("r", "5");
+            svg.appendChild(circle);
+            svg.addEventListener("click", function() {
+                currentIndex = index;
+                showImage(currentIndex);
+            });
+            indicator.appendChild(svg);
+        });
+
+        showImage(currentIndex);  // Show the first image
+    </script>
+</body>
+</html>
