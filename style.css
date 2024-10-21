@@ -508,8 +508,11 @@ nav .fa-solid{
 }
 
 @media only screen and (max-width: 564px){
-	#header{
+	*{
 		overflow-x: hidden;
+	}
+	#header{
+		
 		background-image: url(images/phone-background.jpg);
 	}
 	.header-text{
