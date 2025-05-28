@@ -1,174 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Calendar with Google Sheets</title>
-  <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/main.min.css" rel="stylesheet" />
-  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/main.min.js"></script>
+  <meta charset="UTF-8">
+  <title>Calendar App</title>
+  <link href='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.css' rel='stylesheet' />
+  <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js'></script>
   <style>
     body {
       font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
+      padding: 20px;
     }
     #calendar {
       max-width: 1000px;
       margin: 40px auto;
     }
-    #entryForm {
-      display: none;
-      position: fixed;
-      top: 20%;
-      left: 50%;
-      transform: translateX(-50%);
-      background: white;
-      padding: 20px;
-      border: 1px solid #aaa;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.25);
-      z-index: 1000;
+    form {
+      display: flex;
+      flex-direction: column;
+      max-width: 400px;
+      margin: auto;
     }
-    #overlay {
-      display: none;
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0,0,0,0.5);
-      z-index: 999;
-    }
-    label {
-      display: block;
-      margin-top: 10px;
-    }
-    input[type="text"], input[type="time"], input[type="date"] {
-      width: 100%;
-      padding: 5px;
-      margin-top: 5px;
-    }
-    button {
-      margin-top: 15px;
+    form input, form button {
+      margin: 8px 0;
+      padding: 10px;
+      font-size: 1em;
     }
   </style>
 </head>
 <body>
-  <div id="overlay"></div>
+  <h2 style="text-align:center">Work Calendar</h2>
 
-  <div id="entryForm">
-    <h3>Add Work Entry</h3>
-    <form id="form">
-      <label>Date:
-        <input type="date" id="date" required>
-      </label>
-      <label>Signer Name:
-        <input type="text" id="signer" required>
-      </label>
-      <label>Start Time:
-        <input type="time" id="startTime" required>
-      </label>
-      <label>End Time:
-        <input type="time" id="endTime" required>
-      </label>
-      <button type="submit">Save Entry</button>
-      <button type="button" onclick="closeForm()">Cancel</button>
-    </form>
-  </div>
+  <form id="event-form">
+    <input type="date" id="date" required />
+    <input type="text" id="signer" placeholder="Signer Name" required />
+    <input type="time" id="startTime" required />
+    <input type="time" id="endTime" required />
+    <button type="submit">Save Entry</button>
+  </form>
 
   <div id="calendar"></div>
-  <div style="text-align: center; margin-top: 20px;">
-    <button onclick="openForm()">Add Entry</button>
-  </div>
 
   <script>
-    const scriptURL = "https://script.google.com/macros/s/AKfycbwhC5ePm0UhBglVpkR8YQTqYbTJyZixyBHU4-gQIzkkRA4pCeZ-Ej52_C-gje9acbOb/exec"; // Replace with your actual Google Apps Script web app URL
+    const scriptURL = 'YOUR_GOOGLE_APPS_SCRIPT_WEBAPP_URL'; // Replace with your actual URL
 
-    let calendar;
-
-    document.addEventListener('DOMContentLoaded', async function() {
+    document.addEventListener('DOMContentLoaded', async function () {
       const calendarEl = document.getElementById('calendar');
-      const events = await fetchEvents();
 
-      calendar = new FullCalendar.Calendar(calendarEl, {
+      const calendar = new FullCalendar.Calendar(calendarEl, {
         initialView: 'dayGridMonth',
-        height: "auto",
+        height: 'auto',
         selectable: true,
-        initialDate: new Date().toISOString().split("T")[0],
-        events: events
+        events: await loadEvents()
       });
 
       calendar.render();
-    });
 
-    async function fetchEvents() {
-      try {
-        const res = await fetch(scriptURL);
-        const data = await res.json();
-        const events = [];
-        for (let i = 1; i < data.length; i++) {
-          const [date, signer, start, end, hours] = data[i];
-          events.push({
-            title: `${signer}\n${start} - ${end} (${hours} hrs)`,
-            start: date,
-            allDay: true
-          });
-        }
-        return events;
-      } catch (err) {
-        console.error("Error fetching events:", err);
-        return [];
-      }
-    }
+      document.getElementById('event-form').addEventListener('submit', async (e) => {
+        e.preventDefault();
 
-    function openForm() {
-      document.getElementById('date').value = new Date().toISOString().split("T")[0];
-      document.getElementById('entryForm').style.display = 'block';
-      document.getElementById('overlay').style.display = 'block';
-    }
+        const date = document.getElementById('date').value;
+        const signer = document.getElementById('signer').value;
+        const startTime = document.getElementById('startTime').value;
+        const endTime = document.getElementById('endTime').value;
 
-    function closeForm() {
-      document.getElementById('form').reset();
-      document.getElementById('entryForm').style.display = 'none';
-      document.getElementById('overlay').style.display = 'none';
-    }
+        const data = { date, signer, startTime, endTime };
 
-    document.getElementById('form').addEventListener('submit', async function(e) {
-      e.preventDefault();
-
-      const date = document.getElementById('date').value;
-      const signer = document.getElementById('signer').value;
-      const startTime = document.getElementById('startTime').value;
-      const endTime = document.getElementById('endTime').value;
-
-      // Simple hours calc (assuming 24h format)
-      const start = parseFloat(startTime.split(":")[0]) + parseFloat(startTime.split(":")[1])/60;
-      const end = parseFloat(endTime.split(":")[0]) + parseFloat(endTime.split(":")[1])/60;
-      const hours = Math.round((end - start + Number.EPSILON) * 100) / 100;
-
-      const payload = { date, signer, startTime, endTime, hours };
-
-      try {
-        const response = await fetch(scriptURL, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(payload)
+        await fetch(scriptURL, {
+          method: 'POST',
+          body: JSON.stringify(data),
+          headers: { 'Content-Type': 'application/json' }
         });
 
-        const result = await response.json();
-
-        if (result.status === "success") {
-          calendar.addEvent({
-            title: `${signer}\n${startTime} - ${endTime} (${hours} hrs)`,
-            start: date,
-            allDay: true
-          });
-          closeForm();
-        } else {
-          alert("Error saving entry: " + result.message);
-        }
-      } catch (error) {
-        console.error("Save failed:", error);
-        alert("An error occurred while saving.");
-      }
+        calendar.removeAllEvents();
+        calendar.addEventSource(await loadEvents());
+        document.getElementById('event-form').reset();
+      });
     });
+
+    async function loadEvents() {
+      const res = await fetch(scriptURL);
+      return await res.json();
+    }
+
+    // Set default date to today
+    document.getElementById('date').valueAsDate = new Date();
   </script>
 </body>
 </html>
