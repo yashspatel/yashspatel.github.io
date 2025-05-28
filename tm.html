@@ -2,165 +2,173 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Work Calendar</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-
-  <!-- FullCalendar -->
-  <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.css" rel="stylesheet" />
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Calendar with Google Sheets</title>
+  <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/main.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/main.min.js"></script>
   <style>
-    body, html {
-      height: 100%;
+    body {
+      font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      font-family: Arial, sans-serif;
     }
-
     #calendar {
-      max-width: 95%;
-      margin: 20px auto;
+      max-width: 1000px;
+      margin: 40px auto;
     }
-
-    .fc-event-title {
-      white-space: pre-line;
+    #entryForm {
+      display: none;
+      position: fixed;
+      top: 20%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: white;
+      padding: 20px;
+      border: 1px solid #aaa;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.25);
+      z-index: 1000;
     }
-
-    .fc .fc-daygrid-event {
-      font-size: 0.85em;
-      padding: 4px;
+    #overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 999;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+    input[type="text"], input[type="time"], input[type="date"] {
+      width: 100%;
+      padding: 5px;
+      margin-top: 5px;
+    }
+    button {
+      margin-top: 15px;
     }
   </style>
 </head>
 <body>
+  <div id="overlay"></div>
 
-<div class="container-fluid p-3">
-  <div class="d-flex justify-content-between align-items-center mb-2">
-    <h2>📅 Work Calendar</h2>
-    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#noteModal">➕ Add Entry</button>
+  <div id="entryForm">
+    <h3>Add Work Entry</h3>
+    <form id="form">
+      <label>Date:
+        <input type="date" id="date" required>
+      </label>
+      <label>Signer Name:
+        <input type="text" id="signer" required>
+      </label>
+      <label>Start Time:
+        <input type="time" id="startTime" required>
+      </label>
+      <label>End Time:
+        <input type="time" id="endTime" required>
+      </label>
+      <button type="submit">Save Entry</button>
+      <button type="button" onclick="closeForm()">Cancel</button>
+    </form>
   </div>
+
   <div id="calendar"></div>
-</div>
-
-<!-- Modal -->
-<div class="modal fade" id="noteModal" tabindex="-1" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <form id="entryForm">
-        <div class="modal-header">
-          <h5 class="modal-title">Add Work Entry</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-        </div>
-        <div class="modal-body">
-          <label for="date">Date:</label>
-          <input type="date" id="date" class="form-control mb-2" required />
-
-          <label for="signer">Signer Name:</label>
-          <input type="text" id="signer" class="form-control mb-2" required />
-
-          <label for="startTime">Start Time:</label>
-          <input type="time" id="startTime" class="form-control mb-2" required />
-
-          <label for="endTime">End Time:</label>
-          <input type="time" id="endTime" class="form-control mb-2" required />
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-          <button type="submit" class="btn btn-success">Save Entry</button>
-        </div>
-      </form>
-    </div>
+  <div style="text-align: center; margin-top: 20px;">
+    <button onclick="openForm()">Add Entry</button>
   </div>
-</div>
 
-<!-- Scripts -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
+  <script>
+    const scriptURL = "https://script.google.com/macros/s/AKfycbwhC5ePm0UhBglVpkR8YQTqYbTJyZixyBHU4-gQIzkkRA4pCeZ-Ej52_C-gje9acbOb/exec"; // Replace with your actual Google Apps Script web app URL
 
-<script>
-  const scriptURL = "https://script.google.com/macros/s/AKfycbxCJXHdXFHdjg_h3MH1GCWMC8B3fV8RgDLr7qryJu6ttAxZabqoGbBZgKWb6hDRr2qG/exec"; // ✅ Replace with your deployed Apps Script URL
+    let calendar;
 
-  document.addEventListener("DOMContentLoaded", async function () {
-    const calendarEl = document.getElementById("calendar");
+    document.addEventListener('DOMContentLoaded', async function() {
+      const calendarEl = document.getElementById('calendar');
+      const events = await fetchEvents();
 
-    const calendar = new FullCalendar.Calendar(calendarEl, {
-      initialView: "dayGridMonth",
-      height: "auto",
-      headerToolbar: {
-        left: "prev,next today",
-        center: "title",
-        right: ""
-      },
-      events: await fetchEvents(),
-      eventDisplay: 'block',
-      displayEventTime: false,
+      calendar = new FullCalendar.Calendar(calendarEl, {
+        initialView: 'dayGridMonth',
+        height: "auto",
+        selectable: true,
+        initialDate: new Date().toISOString().split("T")[0],
+        events: events
+      });
+
+      calendar.render();
     });
 
-    calendar.render();
+    async function fetchEvents() {
+      try {
+        const res = await fetch(scriptURL);
+        const data = await res.json();
+        const events = [];
+        for (let i = 1; i < data.length; i++) {
+          const [date, signer, start, end, hours] = data[i];
+          events.push({
+            title: `${signer}\n${start} - ${end} (${hours} hrs)`,
+            start: date,
+            allDay: true
+          });
+        }
+        return events;
+      } catch (err) {
+        console.error("Error fetching events:", err);
+        return [];
+      }
+    }
 
-    // Default today's date
-    const today = new Date().toISOString().split('T')[0];
-    document.getElementById("date").value = today;
+    function openForm() {
+      document.getElementById('date').value = new Date().toISOString().split("T")[0];
+      document.getElementById('entryForm').style.display = 'block';
+      document.getElementById('overlay').style.display = 'block';
+    }
 
-    // Handle form submit
-    document.getElementById("entryForm").addEventListener("submit", async (e) => {
+    function closeForm() {
+      document.getElementById('form').reset();
+      document.getElementById('entryForm').style.display = 'none';
+      document.getElementById('overlay').style.display = 'none';
+    }
+
+    document.getElementById('form').addEventListener('submit', async function(e) {
       e.preventDefault();
 
-      const date = document.getElementById("date").value;
-      const signer = document.getElementById("signer").value;
-      const startTime = document.getElementById("startTime").value;
-      const endTime = document.getElementById("endTime").value;
-      const hours = computeHours(startTime, endTime);
+      const date = document.getElementById('date').value;
+      const signer = document.getElementById('signer').value;
+      const startTime = document.getElementById('startTime').value;
+      const endTime = document.getElementById('endTime').value;
 
-      // Save to Google Sheet
-      await fetch(scriptURL + "?action=add", {
-        method: "POST",
-        body: JSON.stringify({ date, signer, startTime, endTime, hours }),
-      });
+      // Simple hours calc (assuming 24h format)
+      const start = parseFloat(startTime.split(":")[0]) + parseFloat(startTime.split(":")[1])/60;
+      const end = parseFloat(endTime.split(":")[0]) + parseFloat(endTime.split(":")[1])/60;
+      const hours = Math.round((end - start + Number.EPSILON) * 100) / 100;
 
-      // Show on calendar
-      calendar.addEvent({
-        title: `${signer}\n${startTime} - ${endTime} (${hours} hrs)`,
-        start: date,
-        allDay: true
-      });
+      const payload = { date, signer, startTime, endTime, hours };
 
-      // Reset and close
-      e.target.reset();
-      document.getElementById("date").value = today;
-      bootstrap.Modal.getInstance(document.getElementById("noteModal")).hide();
-    });
-  });
-
-  function computeHours(start, end) {
-    const [h1, m1] = start.split(":").map(Number);
-    const [h2, m2] = end.split(":").map(Number);
-    const hours = (h2 + m2 / 60) - (h1 + m1 / 60);
-    return hours > 0 ? hours.toFixed(2) : "0.00";
-  }
-
-  async function fetchEvents() {
-    try {
-      const res = await fetch(scriptURL + "?action=get", { method: "POST" });
-      const data = await res.json();
-      const events = [];
-      for (let i = 1; i < data.length; i++) {
-        const [date, signer, start, end, hours] = data[i];
-        events.push({
-          title: `${signer}\n${start} - ${end} (${hours} hrs)`,
-          start: date,
-          allDay: true
+      try {
+        const response = await fetch(scriptURL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
         });
-      }
-      return events;
-    } catch (err) {
-      console.error("Error loading events:", err);
-      return [];
-    }
-  }
-</script>
 
+        const result = await response.json();
+
+        if (result.status === "success") {
+          calendar.addEvent({
+            title: `${signer}\n${startTime} - ${endTime} (${hours} hrs)`,
+            start: date,
+            allDay: true
+          });
+          closeForm();
+        } else {
+          alert("Error saving entry: " + result.message);
+        }
+      } catch (error) {
+        console.error("Save failed:", error);
+        alert("An error occurred while saving.");
+      }
+    });
+  </script>
 </body>
 </html>
