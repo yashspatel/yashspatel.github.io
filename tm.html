@@ -2,74 +2,176 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Add Entry</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weekly Work Hours Calendar</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      padding: 30px;
-      background-color: #f5f5f5;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
     }
-    form {
-      background: white;
-      padding: 20px;
-      border-radius: 8px;
-      max-width: 400px;
-      margin: auto;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    input, button {
-      display: block;
-      width: 100%;
-      margin-bottom: 15px;
-      padding: 10px;
-      font-size: 16px;
-    }
-    button {
+    header {
       background-color: #4285F4;
       color: white;
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header h1 {
+      margin: 0;
+    }
+    #add-entry-btn {
+      background-color: white;
+      color: #4285F4;
       border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
       cursor: pointer;
     }
-    button:hover {
-      background-color: #3367D6;
+    .calendar {
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      gap: 1px;
+      background-color: #ccc;
+      margin: 1rem;
+    }
+    .day, .week-total {
+      background-color: white;
+      padding: 1rem;
+      min-height: 100px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .day h3 {
+      margin-top: 0;
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      justify-content: center;
+      align-items: center;
+    }
+    .modal-content {
+      background: white;
+      padding: 2rem;
+      border-radius: 8px;
+      width: 300px;
+    }
+    .modal-content input, .modal-content button {
+      width: 100%;
+      margin-bottom: 1rem;
+      padding: 0.5rem;
     }
   </style>
 </head>
 <body>
+  <header>
+    <h1>Weekly Work Calendar</h1>
+    <button id="add-entry-btn">+ Add Entry</button>
+  </header>
 
-  <form id="entryForm">
-    <h2>Add New Entry</h2>
-    <input type="date" name="date" required value="<?= new Date().toISOString().split('T')[0] ?>">
-    <input type="text" name="name" placeholder="Signer Name" required>
-    <input type="time" name="startTime" placeholder="Start Time" required>
-    <input type="time" name="endTime" placeholder="End Time" required>
-    <button type="submit">Add Entry</button>
-  </form>
+  <div class="calendar" id="calendar">
+    <!-- Days and week total will be injected here -->
+  </div>
+
+  <div class="modal" id="entry-modal">
+    <div class="modal-content">
+      <h3>Add Entry</h3>
+      <input type="date" id="entry-date" required />
+      <input type="text" id="entry-name" placeholder="Signer Name" required />
+      <input type="time" id="entry-start" required />
+      <input type="time" id="entry-end" required />
+      <button id="submit-entry">Submit</button>
+    </div>
+  </div>
 
   <script>
-    document.getElementById('entryForm').addEventListener('submit', async function (e) {
-      e.preventDefault();
-      const form = e.target;
-      const formData = new FormData(form);
+    const calendarEl = document.getElementById('calendar');
+    const modal = document.getElementById('entry-modal');
+    const addEntryBtn = document.getElementById('add-entry-btn');
+    const submitEntry = document.getElementById('submit-entry');
 
-      try {
-        const response = await fetch('https://script.google.com/macros/s/AKfycbwRI0wW7EnW-FOAY8HlSHRhWkJ8uJFVH8xhy3VGvD-vL1ApC1apdOUE2EiG5lLzv7fj/exec', {
-          method: 'POST',
-          body: formData
-        });
+    addEntryBtn.onclick = () => modal.style.display = 'flex';
+    window.onclick = e => { if (e.target === modal) modal.style.display = 'none'; };
 
-        const result = await response.json();
-        if (result.result === 'success') {
-          alert('Entry added successfully!');
-          form.reset();
+    const SHEET_API_URL = 'https://script.google.com/macros/s/AKfycbwRI0wW7EnW-FOAY8HlSHRhWkJ8uJFVH8xhy3VGvD-vL1ApC1apdOUE2EiG5lLzv7fj/exec'; // Replace with actual URL
+
+    function getCurrentWeekDates() {
+      const now = new Date();
+      const start = new Date(now.setDate(now.getDate() - now.getDay() + 1));
+      return [...Array(7).keys()].map(i => {
+        const d = new Date(start);
+        d.setDate(d.getDate() + i);
+        return d;
+      });
+    }
+
+    function renderCalendar(entries) {
+      const weekDates = getCurrentWeekDates();
+      let weeklyTotal = 0;
+      calendarEl.innerHTML = '';
+
+      weekDates.forEach(date => {
+        const yyyyMMdd = date.toISOString().split('T')[0];
+        const entry = entries.find(e => e.date === yyyyMMdd);
+        const hours = entry ? parseFloat(entry.totalHours) : 0;
+        weeklyTotal += hours;
+
+        const dayBox = document.createElement('div');
+        dayBox.className = 'day';
+        dayBox.innerHTML = `<h3>${date.toDateString().slice(0, 3)}</h3><p>${hours} hrs</p>`;
+        calendarEl.appendChild(dayBox);
+      });
+
+      const totalBox = document.createElement('div');
+      totalBox.className = 'week-total';
+      totalBox.innerHTML = `<h3>Total</h3><p>${weeklyTotal.toFixed(2)} hrs</p>`;
+      calendarEl.appendChild(totalBox);
+    }
+
+    function fetchEntries() {
+      fetch(SHEET_API_URL + '?action=get')
+        .then(res => res.json())
+        .then(data => renderCalendar(data.entries || []))
+        .catch(err => console.error(err));
+    }
+
+    submitEntry.onclick = () => {
+      const date = document.getElementById('entry-date').value;
+      const name = document.getElementById('entry-name').value;
+      const startTime = document.getElementById('entry-start').value;
+      const endTime = document.getElementById('entry-end').value;
+
+      if (!date || !name || !startTime || !endTime) return;
+
+      const formData = new URLSearchParams({
+        date, name, startTime, endTime
+      });
+
+      fetch(SHEET_API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: formData
+      })
+      .then(res => res.json())
+      .then(data => {
+        if (data.result === 'success') {
+          modal.style.display = 'none';
+          fetchEntries();
         } else {
-          alert('Error: ' + result.error);
+          alert('Error: ' + data.error);
         }
-      } catch (err) {
-        alert('Fetch failed: ' + err.message);
-      }
-    });
-  </script>
+      })
+      .catch(err => alert('Error: ' + err.message));
+    };
 
+    fetchEntries();
+  </script>
 </body>
 </html>
