@@ -3,23 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Weekly Calendar</title>
-  <link rel="stylesheet" href="tmstyles.css" />
+  <title>Weekly Work Calendar</title>
+  <link rel="stylesheet" href="tmstyles.css">
 </head>
 <body>
-  <div class="calendar-container">
-    <div class="calendar-header">
-      <div class="day-label">Monday</div>
-      <div class="day-label">Tuesday</div>
-      <div class="day-label">Wednesday</div>
-      <div class="day-label">Thursday</div>
-      <div class="day-label">Friday</div>
-      <div class="day-label">Saturday</div>
-      <div class="day-label">Sunday</div>
-    </div>
-    <div class="calendar-body" id="calendarBody">
-      <!-- Calendar entries will appear here -->
-    </div>
+  <h1>Weekly Work Calendar</h1>
+  <div class="calendar-wrapper" id="calendarWrapper"></div>
+
+  <button class="add-button" onclick="document.getElementById('entryModal').classList.add('show')">+ Add Entry</button>
+
+  <div id="entryModal">
+    <h3>Add Entry</h3>
+    <input type="text" id="signer" placeholder="Signer Name" />
+    <input type="time" id="start" />
+    <input type="time" id="end" />
+    <button onclick="submitEntry()">Save</button>
+    <button onclick="document.getElementById('entryModal').classList.remove('show')">Cancel</button>
   </div>
 
   <script src="tmscript.js"></script>
