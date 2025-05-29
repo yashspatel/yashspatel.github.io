@@ -1,60 +1,61 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Add Entry to Google Sheet</title>
+  <title>Push to Google Sheet</title>
   <style>
-    body {
-      font-family: Arial;
-      padding: 20px;
-    }
-    input {
-      margin: 5px;
-      padding: 5px;
-    }
-    button {
-      padding: 8px 16px;
-    }
+    body { font-family: Arial; margin: 40px; }
+    input { margin: 8px 0; padding: 6px; width: 200px; }
+    button { padding: 8px 16px; }
   </style>
 </head>
 <body>
-  <h2>Add New Entry</h2>
-
-  <label>Date: <input type="date" id="date" required></label><br>
-  <label>Signer Name: <input type="text" id="signer" required></label><br>
-  <label>Start Time: <input type="time" id="startTime" required></label><br>
-  <label>End Time: <input type="time" id="endTime" required></label><br>
-  <button onclick="submitEntry()">Submit</button>
+  <h2>Add Entry</h2>
+  <form id="entryForm">
+    <label>Date: <input type="date" id="date" required></label><br>
+    <label>Name: <input type="text" id="name" required></label><br>
+    <label>Start Time: <input type="time" id="startTime" required></label><br>
+    <label>End Time: <input type="time" id="endTime" required></label><br>
+    <button type="submit">Submit</button>
+  </form>
 
   <p id="status"></p>
 
   <script>
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbzZjQqUkyJZdPZ99gHSalJMFiO1BdTSM9v300SUIlTMMFLgPtDMHVuydLnh_AJmOC_8/exec';
+    const form = document.getElementById('entryForm');
+    const status = document.getElementById('status');
 
-    function submitEntry() {
-      const date = document.getElementById("date").value;
-      const signer = document.getElementById("signer").value;
-      const startTime = document.getElementById("startTime").value;
-      const endTime = document.getElementById("endTime").value;
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
 
-      if (!date || !signer || !startTime || !endTime) {
-        alert("Please fill in all fields.");
-        return;
-      }
+      const data = {
+        date: document.getElementById('date').value,
+        name: document.getElementById('name').value,
+        startTime: document.getElementById('startTime').value,
+        endTime: document.getElementById('endTime').value,
+      };
 
-      fetch(scriptURL, {
+      fetch('https://script.google.com/macros/s/AKfycbyBSuYw6fhZXdH3JikDDTL-mL10H_d4RBc8nYorcKXLxXClgzBRbdpmV6QJbyPAl4I5/exec', 
+        {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ date, signer, startTime, endTime })
+        body: JSON.stringify(data),
+        headers: {
+          'Content-Type': 'application/json',
+        }
       })
-      .then(response => response.json())
-      .then(data => {
-        document.getElementById("status").innerText = "Entry added successfully!";
+      .then(res => res.json())
+      .then(res => {
+        if (res.result === 'success') {
+          status.textContent = '✅ Entry added successfully!';
+          form.reset();
+        } else {
+          status.textContent = '❌ Error: ' + res.error;
+        }
       })
-      .catch(error => {
-        console.error('Error!', error.message);
-        document.getElementById("status").innerText = "Error adding entry.";
+      .catch(err => {
+        console.error(err);
+        status.textContent = '❌ Request failed.';
       });
-    }
+    });
   </script>
 </body>
 </html>
