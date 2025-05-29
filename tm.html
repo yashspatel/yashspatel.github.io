@@ -2,171 +2,26 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Weekly Work Calendar</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 20px;
-      background: #f4f6f8;
-    }
-    h1 {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-    .calendar-container {
-      display: grid;
-      grid-template-columns: repeat(8, 1fr);
-      gap: 10px;
-      align-items: start;
-    }
-    .day {
-      background: white;
-      padding: 10px;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      min-height: 100px;
-    }
-    .header {
-      font-weight: bold;
-      text-align: center;
-      margin-bottom: 10px;
-    }
-    .total {
-      font-weight: bold;
-      font-size: 1.2em;
-      text-align: center;
-    }
-    .add-button {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      padding: 15px 20px;
-      background: #007bff;
-      color: white;
-      border: none;
-      border-radius: 50px;
-      font-size: 16px;
-      cursor: pointer;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    }
-    #entryModal {
-      display: none;
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background: white;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-    }
-    #entryModal.show {
-      display: block;
-    }
-    #entryModal input,
-    #entryModal button {
-      margin: 10px 0;
-      display: block;
-      width: 100%;
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weekly Calendar</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <h1>Weekly Work Calendar</h1>
-  <div class="calendar-container" id="calendar"></div>
-
-  <button class="add-button" onclick="document.getElementById('entryModal').classList.add('show')">+ Add Entry</button>
-
-  <div id="entryModal">
-    <h3>Add Entry</h3>
-    <input type="text" id="signer" placeholder="Signer Name" />
-    <input type="time" id="start" />
-    <input type="time" id="end" />
-    <button onclick="submitEntry()">Save</button>
-    <button onclick="document.getElementById('entryModal').classList.remove('show')">Cancel</button>
+  <div class="calendar-container">
+    <div class="calendar-header">
+      <div class="day-label">Monday</div>
+      <div class="day-label">Tuesday</div>
+      <div class="day-label">Wednesday</div>
+      <div class="day-label">Thursday</div>
+      <div class="day-label">Friday</div>
+      <div class="day-label">Saturday</div>
+      <div class="day-label">Sunday</div>
+    </div>
+    <div class="calendar-body" id="calendarBody">
+      <!-- Calendar entries will appear here -->
+    </div>
   </div>
 
-  <script>
-    const sheetURL = 'https://script.google.com/macros/s/AKfycbzoRExx8FgEmB5LbYqYi_W_qHq5sSEGCEc0HoEaGPVUNDSPbiNUdCrsi8gcrQhtkF3-/exec';
-
-    function fetchEntries() {
-      fetch(sheetURL)
-        .then(res => res.json())
-        .then(data => renderCalendar(data))
-        .catch(err => {
-          console.error('Error fetching:', err);
-          renderCalendar([]); // fallback to show blank calendar
-        });
-    }
-
-    function renderCalendar(entries) {
-      const container = document.getElementById('calendar');
-      container.innerHTML = '';
-
-      const days = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
-      const hoursMap = { 'Monday': 0, 'Tuesday': 0, 'Wednesday': 0, 'Thursday': 0, 'Friday': 0, 'Saturday': 0, 'Sunday': 0 };
-
-      const today = new Date();
-      const startOfWeek = new Date(today.setDate(today.getDate() - today.getDay() + 1));
-
-      for (let i = 0; i < 7; i++) {
-        const dayDate = new Date(startOfWeek);
-        dayDate.setDate(dayDate.getDate() + i);
-        const dayStr = dayDate.toISOString().split('T')[0];
-
-        const dayEntries = entries.filter(e => e.Date === dayStr);
-        let html = `<div class='header'>${days[i]}</div>`;
-
-        if (dayEntries.length === 0) {
-          html += `<div style="text-align:center; color:#aaa;">No Data</div>`;
-        }
-
-        dayEntries.forEach(e => {
-          html += `<div>${e.Signer || 'Unknown'} (${e.Hours || '0.00'})</div>`;
-          hoursMap[days[i]] += parseFloat(e.Hours || 0);
-        });
-
-        container.innerHTML += `<div class='day'>${html}</div>`;
-      }
-
-      // Weekly total
-      const total = Object.values(hoursMap).reduce((a, b) => a + b, 0);
-      container.innerHTML += `<div class='day total'>${total.toFixed(2)} hrs<br><span style='font-size:12px'>(Weekly Total)</span></div>`;
-    }
-
-    function submitEntry() {
-      const signer = document.getElementById('signer').value;
-      const start = document.getElementById('start').value;
-      const end = document.getElementById('end').value;
-
-      if (!signer || !start || !end) return alert('Please fill all fields');
-
-      const today = new Date().toISOString().split('T')[0];
-
-      const body = new URLSearchParams();
-      body.append('date', today);
-      body.append('signer', signer);
-      body.append('start', start);
-      body.append('end', end);
-
-      fetch(sheetURL, {
-        method: 'POST',
-        body,
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded'
-        }
-      })
-      .then(res => res.text())
-      .then(() => {
-        document.getElementById('entryModal').classList.remove('show');
-        fetchEntries();
-      })
-      .catch(err => alert('Failed to save entry'));
-    }
-
-    fetchEntries();
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
