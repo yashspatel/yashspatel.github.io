@@ -35,15 +35,14 @@
 </div>
 
 <script>
-const API_URL = "https://script.google.com/macros/s/AKfycbypfp6DP7-PEWHTQLVbsMP8VMK6NX-3EQrvykrKDoWD1owSXtICaEhIGanGqKuALKEl/exec";  // Replace with your deployed URL
+const API_URL = "https://script.google.com/macros/s/AKfycbz6RYKBi6v29OYYcMEPFhqILUGt3jgkmJ-uWFWNr2-Kdjn_zd8AlQI7nwK2m8hPOQy4/exec";  // Replace with your deployed URL
 
-// Fetch and display data
 async function fetchData() {
-  const res = await fetch(API_URL + "?getData");
+  const res = await fetch(API_URL);  // No extra query
   const data = await res.json();
   const tbody = document.querySelector("#data-table tbody");
   tbody.innerHTML = "";
-  data.slice(1).forEach(row => {  // Skip header row
+  data.slice(1).forEach(row => {  // Skip header
     const tr = document.createElement("tr");
     row.forEach(cell => {
       const td = document.createElement("td");
@@ -53,6 +52,7 @@ async function fetchData() {
     tbody.appendChild(tr);
   });
 }
+
 
 // Submit form data
 async function submitForm() {
