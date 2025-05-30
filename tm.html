@@ -2,25 +2,27 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Weekly Work Calendar</title>
-  <link rel="stylesheet" href="tmstyles.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Work Time Tracker</title>
+  <link rel="stylesheet" href="tmstyles.css"/>
 </head>
 <body>
-  <h1>Weekly Work Calendar</h1>
-  <div class="calendar-wrapper" id="calendarWrapper"></div>
-
-  <button class="add-button" onclick="document.getElementById('entryModal').classList.add('show')">+ Add Entry</button>
-
-  <div id="entryModal">
-    <h3>Add Entry</h3>
-    <input type="text" id="signer" placeholder="Signer Name" />
-    <input type="time" id="start" />
-    <input type="time" id="end" />
-    <button onclick="submitEntry()">Save</button>
-    <button onclick="document.getElementById('entryModal').classList.remove('show')">Cancel</button>
+  <div class="container">
+    <h1>Work Time Tracker</h1>
+    <button onclick="toggleForm()">Add Entry</button>
+    <div id="form-container" class="hidden">
+      <form id="entryForm">
+        <input type="date" name="date" required />
+        <input type="text" name="signer" placeholder="Signer Name" required />
+        <input type="time" name="start" required />
+        <input type="time" name="end" required />
+        <input type="number" step="0.01" name="hours" placeholder="Total Hours" required />
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+    <div id="calendar"></div>
+    <div id="weekly-summary"></div>
   </div>
-
   <script src="tmscript.js"></script>
 </body>
 </html>
