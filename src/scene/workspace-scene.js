@@ -28,7 +28,7 @@ export function createWorkspaceScene(canvas,motionPreference) {
   const camera=new THREE.PerspectiveCamera(38,innerWidth/innerHeight,.025,400);
   let mobile=innerWidth<=700;
   const workspace=createWorkspace(scene,mobile);
-  const portal=createScreenPortal(workspace.mainMonitor,camera);
+  const portal=createScreenPortal(workspace.portalTarget,camera);
   const skyToggle=createSkyToggle();
   const outsideDay=new THREE.Color('#b4d9ed'),outsideNight=new THREE.Color('#0c0d16'),insideDay=new THREE.Color('#eeeae2'),skyColor=new THREE.Color();
   const pointer=new THREE.Vector2(),smoothedPointer=new THREE.Vector2();
@@ -60,7 +60,7 @@ export function createWorkspaceScene(canvas,motionPreference) {
     skyColor.copy(outsideDay).lerp(insideDay,THREE.MathUtils.smoothstep(p,.23,.36));
     scene.background.copy(outsideNight).lerp(skyColor,dayMix);scene.fog.color.copy(scene.background);
     workspace.exterior.update(p);scene.fog.density=THREE.MathUtils.lerp(.011,.018,THREE.MathUtils.smoothstep(p,.23,.36));
-    portal.alignCamera(p,!still);portal.update(p,!still);
+    portal.alignCamera(p,!still);workspace.mainMonitor.scale.x=workspace.portalTarget.scale.x;portal.update(p,!still);
     workspace.animate(clock,delta,still);renderer.render(scene,camera);frames++;
     canvas.dataset.frames=String(frames);canvas.dataset.camera=camera.position.toArray().map(v=>v.toFixed(3)).join(',');
   }
@@ -75,7 +75,7 @@ export function createWorkspaceScene(canvas,motionPreference) {
     renderer.setAnimationLoop(active?animate:null);if(!active)previous=0;
   }
   function measure(){
-    mobile=innerWidth<=700;measureLanding();
+    mobile=innerWidth<=700;workspace.resizeDevice();measureLanding();
     renderer.setPixelRatio(Math.min(devicePixelRatio,mobile?sceneConfig.mobilePixelRatio:sceneConfig.maxPixelRatio));
     renderer.setSize(innerWidth,innerHeight,false);renderer.shadowMap.needsUpdate=true;
     camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();portal.resize();

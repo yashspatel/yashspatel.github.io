@@ -5,6 +5,11 @@ export function createScreens(){
   const canvas=document.createElement('canvas');canvas.width=768;canvas.height=480;
   const ctx=canvas.getContext('2d');
   const texture=new THREE.CanvasTexture(canvas);texture.colorSpace=THREE.SRGBColorSpace;texture.magFilter=THREE.NearestFilter;
+  const phoneCanvas=document.createElement('canvas');phoneCanvas.width=360;phoneCanvas.height=780;
+  const phoneCtx=phoneCanvas.getContext('2d');
+  const phoneTexture=new THREE.CanvasTexture(phoneCanvas);phoneTexture.colorSpace=THREE.SRGBColorSpace;phoneTexture.magFilter=THREE.NearestFilter;
+  const inspectorCanvas=document.createElement('canvas');inspectorCanvas.width=768;inspectorCanvas.height=480;
+  const inspector=inspectorCanvas.getContext('2d');
   const sideCanvas=document.createElement('canvas');sideCanvas.width=960;sideCanvas.height=420;
   const side=sideCanvas.getContext('2d');
   const sideTexture=new THREE.CanvasTexture(sideCanvas);sideTexture.colorSpace=THREE.SRGBColorSpace;sideTexture.magFilter=THREE.NearestFilter;
@@ -20,8 +25,8 @@ export function createScreens(){
     const prompt='Build my portfolo and make it live!';
     let line='',row=0;
     prompt.split(' ').forEach(word=>{if(ctx.measureText(line+word).width>625){ctx.fillText(line,53,189+row*23);line='';row++;}line+=word+' ';});ctx.fillText(line,53,189+row*23);
-    const sent=taskProgress>=.36;ctx.fillStyle=sent?'#2b5b4b':'#9c82bd';ctx.fillRect(571,228,143,25);ctx.fillStyle='#e7eaf4';ctx.font='11px monospace';ctx.fillText(sent?'TASK SENT ✓':'SEND TASK ↗',587,245);
-    if(taskProgress>=.39){
+    const sent=taskProgress>=(innerWidth<=700?.48:.36);ctx.fillStyle=sent?'#2b5b4b':'#9c82bd';ctx.fillRect(571,228,143,25);ctx.fillStyle='#e7eaf4';ctx.font='11px monospace';ctx.fillText(sent?'TASK SENT ✓':'SEND TASK ↗',587,245);
+    if(taskProgress>=(innerWidth<=700?.5:.39)){
       ctx.fillStyle='#99dbbb';ctx.font='bold 11px monospace';ctx.fillText('AI AGENT',39,300);
       ctx.fillStyle='#b5c0d6';ctx.font='13px monospace';ctx.fillText('On it. Eighteen agents, one shared canvas.',39,321);
       const roles=['Architect','Designer','Developer','AI Agent','Research','ML Engineer','Content','QA','Layout','Systems','Frontend','Backend','Accessibility','Integration','Motion','Tools','Data','Review'];
@@ -30,7 +35,14 @@ export function createScreens(){
     }
     ctx.fillStyle=taskProgress>=.51?'#ef4444':'#24334b';ctx.fillRect(0,440,768,40);ctx.fillStyle='#d4deef';ctx.font='12px monospace';ctx.fillText(taskProgress>=.51?'OPENING THE LIVE CANVAS →':'IDEA → BRIEF → AGENTS → SOMETHING USEFUL',39,465);
     const device=getDevicePreview();
-    if(device.mode!=='desktop')drawDevicePreview(ctx,device,innerWidth,innerHeight);
+    if(device.mode==='tablet')drawDevicePreview(ctx,device,innerWidth,innerHeight);
+    if(device.mode==='mobile'){
+      const preview={mode:'mobile',width:.86*innerWidth/innerHeight,height:.86,y:0};
+      drawDevicePreview(inspector,preview,innerWidth,innerHeight);
+      const w=preview.width/1.72*768,h=preview.height/1.08*480;
+      phoneCtx.drawImage(inspectorCanvas,(768-w)/2,(480-h)/2,w,h,0,0,phoneCanvas.width,phoneCanvas.height);
+      phoneTexture.needsUpdate=true;
+    }
     texture.needsUpdate=true;
   }
   function drawWorkflow(time,still){
@@ -78,5 +90,5 @@ export function createScreens(){
     if(tick!==lastWorkflow){drawWorkflow(still?0:time,still);lastWorkflow=tick;}
   }
   update(0,true);
-  return {texture,sideTexture,update,setTaskProgress(value){taskProgress=value},dispose(){texture.dispose();sideTexture.dispose()}};
+  return {texture,sideTexture,phoneTexture,update,setTaskProgress(value){taskProgress=value},dispose(){texture.dispose();sideTexture.dispose()}};
 }

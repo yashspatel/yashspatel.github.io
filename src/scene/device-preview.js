@@ -3,6 +3,7 @@ export function getDevicePreview(width=innerWidth,height=innerHeight){
   const mode=width<=700?'mobile':width<=1100?'tablet':'desktop';
   if(mode==='desktop')return {mode,width:1.72,height:1.08,y:0};
   const ratio=width/height;
+  if(mode==='mobile')return {mode,width:1.5*ratio,height:1.5,y:0};
   const h=Math.min(.86,1.4/ratio);
   return {mode,width:h*ratio,height:h,y:-.025};
 }

@@ -2,6 +2,7 @@ import * as THREE from 'three';
 import { createBoxFactory } from './geometry.js';
 import { createVoxelCharacter } from './voxel-character.js';
 import { createScreens } from './screens.js';
+import { getDevicePreview } from './device-preview.js';
 import { sceneConfig } from './config.js';
 import { createBuildingExterior } from './building-exterior.js';
 
@@ -103,6 +104,23 @@ export function createWorkspace(scene, mobile) {
   }
   const mainMonitor=monitor(.45,2.42,-.98,1.72,1.08,screens.texture,-.06);
   monitor(-1.24,2.31,-.87,1.4,.78,screens.sideTexture,.22);
+
+  // Separate pixel phone simulator beside the character; its screen is the mobile portal.
+  const phone=new THREE.Group();phone.name='MobileSimulator';phone.position.set(1.38,2.65,.48);room.add(phone);
+  const phoneFrame=new THREE.Mesh(new THREE.BoxGeometry(1,1,.11),new THREE.MeshStandardMaterial({color:'#252a42',roughness:.65}));phone.add(phoneFrame);
+  const phoneScreen=new THREE.Mesh(new THREE.PlaneGeometry(1,1),new THREE.MeshBasicMaterial({map:screens.phoneTexture,toneMapped:false}));phoneScreen.position.z=.057;phone.add(phoneScreen);
+  const phoneCamera=new THREE.Mesh(new THREE.BoxGeometry(.12,.025,.01),new THREE.MeshBasicMaterial({color:'#070913'}));phoneCamera.position.z=.064;phone.add(phoneCamera);
+  function resizeDevice(){
+    const device=getDevicePreview();phone.visible=device.mode==='mobile';
+    if(phone.visible){phoneFrame.scale.set(device.width+.10,device.height+.15,1);phoneScreen.scale.set(device.width,device.height,1);phoneCamera.position.y=device.height/2+.035;}
+  }
+  resizeDevice();
+  const portalTarget=new THREE.Group();room.add(portalTarget);
+  function syncPortalTarget(){
+    const target=innerWidth<=700?phone:mainMonitor;
+    portalTarget.position.copy(target.position);portalTarget.quaternion.copy(target.quaternion);
+  }
+  syncPortalTarget();
 
   // Keyboard, individual keys, mouse, notebook, mug, and a tiny desk speaker.
   box(props,'black',-.38,1.71,-.02,.98,.055,.33);
@@ -219,7 +237,7 @@ export function createWorkspace(scene, mobile) {
       if(gltf.animations.length){mixer=new THREE.AnimationMixer(externalRoot);const clip=THREE.AnimationClip.findByName(gltf.animations,sceneConfig.character.animation)||gltf.animations[0];mixer.clipAction(clip).play();}
     }).catch(()=>{document.querySelector('#scene-loading-text').textContent='CUSTOM MODEL UNAVAILABLE / VOXEL CHARACTER ACTIVE'});
   }
-  return {room,mainMonitor,character,screenLight,screens,lamp,lampGlow,ambient,key,warm,exterior,
+  return {room,mainMonitor,portalTarget,resizeDevice(){resizeDevice();syncPortalTarget()},character,screenLight,screens,lamp,lampGlow,ambient,key,warm,exterior,
     animate(time,delta,still=false) {
       steamPuffs.forEach((puff,i)=>{
         const phase=((still?0:time*.24)+i/steamPuffs.length)%1;
