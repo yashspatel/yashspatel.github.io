@@ -1,0 +1,51 @@
+/* Readable text at every breakpoint, including the projected monitor portal. */
+body{font-size:16px}
+:root{--muted:#aaaab4}
+.hero-description,.about-copy>p,.project>p,.project-pending>p,.section-heading>p,.skill-groups p,.experience-row p,.experience-row p+p,.education p,.contact-bottom>p,dialog p,dialog li{font-size:16px!important;line-height:1.8}
+.desktop-nav,.room-header nav,.button,.text-link,.contact-socials,#mobile-nav a{font-size:14px!important}
+.workspace-bar,.file-current,.simulation-label,.hero-eyebrow,.hero-note,.hero-note>span,.preview-label,.preview-top,.preview-project-copy>p,.preview-tags,.preview-footer,.section-eyebrow,.section-eyebrow>span:last-child,.photo-caption,.art-label,.project-heading,.tags span,.pending-state,.project-note,.skill-groups>div>span,.experience-row>span,.education>span,.email-actions button,footer>p,footer>span,footer>a:last-of-type,.room-meta,.room-meta>span:last-child,.room-scroll,.scene-loading{font-size:12px!important;line-height:1.65;letter-spacing:.25px}
+.preview-label,.preview-top,.preview-project-copy>p,.preview-tags,.preview-footer,.photo-caption,.project-heading,.section-eyebrow>span:last-child{color:var(--muted)}
+.diagram-node small,.diagram-node b{font-size:11px!important;line-height:1.5;white-space:normal}
+.diagram-node{min-width:0;flex:1;padding:12px 8px}.agent-diagram{height:auto;min-height:165px;gap:10px}
+.project-terminal{font-size:12px!important;line-height:1.65;width:88%;padding-inline:12px}
+.project-terminal>div,.project-terminal strong,.job-header>span,.job-input,.job-preview>div>span,.job-preview p small{font-size:11px!important;line-height:1.5}
+.job-preview{width:84%}.job-preview p b{font-size:15px}.job-header{flex-wrap:wrap;gap:10px}
+.project-art{min-height:340px;aspect-ratio:auto;padding:50px 0 28px}.art-label{top:14px;left:14px;right:14px}
+.lamp-toggle,.room-tools .lamp-toggle,.journey-controls,.journey-controls>span,.journey-controls>button{font-size:12px!important;line-height:1.5}
+.room-tools .lamp-toggle{min-height:44px;padding:8px 12px}.room-tools #motion-toggle{height:44px;width:44px}
+.journey-controls>button{min-height:44px}.journey-controls>span{color:#a8b8ce;min-width:0}
+.construction-footer,.animation-controls button,#agent-count,.selection-label,.size-label,.guide-measure,.build-tools,.swatch-value,.corner-mark>span{font-size:11px!important;line-height:1.6}
+.construction-footer,.build-status{flex-wrap:wrap}.construction-footer{gap:16px}.build-status{row-gap:8px}#agent-count{color:var(--muted)}
+.global-agent-pool .cursor-label{font-size:11px!important;padding:5px 7px;line-height:1.3}
+.virtual-cursor .cursor-label:after{font-size:10px!important}
+.specialties{font-size:12px;flex-wrap:wrap;white-space:normal;gap:16px 24px}
+.hero-note,.photo-caption,.preview-top,.preview-footer,.section-eyebrow{flex-wrap:wrap;row-gap:10px}
+.hero-ctas{flex-wrap:wrap}.hero-content{grid-template-columns:minmax(0,1.48fr) minmax(0,1fr)}
+.workspace-bar{height:auto;min-height:56px;flex-wrap:wrap;padding-block:12px}.workspace-bar-right{flex-wrap:wrap}.simulation-label{display:none}
+.email-actions>a{font-size:16px!important;overflow-wrap:anywhere}.email-actions{min-width:0;max-width:100%}
+@media(max-width:1100px){.hero-content{grid-template-columns:minmax(0,1.2fr) minmax(0,1fr)}.desktop-nav{gap:17px}.room-header{padding-right:190px}.diagram-node small{font-size:10px!important}.hero-note>span:last-child{border:0;padding-left:0}}
+@media(max-width:700px){
+ .hero-content{grid-template-columns:1fr}.hero-project{display:block}.preview-top{padding:14px}.preview-project-copy{padding:22px}.preview-project-copy h2{font-size:30px}.preview-footer{padding:14px}.agent-diagram{min-height:160px;border-right:0}.diagram-node small{font-size:11px!important}.node-human{display:flex}
+ .hero-heading-wrap{min-height:0}.hero-description{min-height:0;max-width:none}.hero-note{gap:14px}.hero-note>span:last-child{max-width:none}.hero-note>span{flex-basis:100%}
+ .section-eyebrow>span:last-child{max-width:none;text-align:left}.photo-caption>span{flex-basis:100%}.section-heading{flex-wrap:wrap}.section-heading>p{max-width:none}
+ .workspace-bar{padding-right:6%!important}.workspace-bar-right{display:none}.file-current{display:none}.room-header{padding-right:170px}.room-meta{max-width:100%}.room-meta>span{flex-wrap:wrap}
+ .room-tools{right:4%;top:18px}.room-tools .lamp-toggle{font-size:11px!important}.journey-controls{gap:8px;padding:6px 8px;left:4%;right:4%}.journey-controls>span{font-size:11px!important;padding-right:0}.journey-controls>button{font-size:12px!important}
+ .construction-footer{align-items:flex-start}.build-status{max-width:100%}#construction-status{min-width:0}#agent-count{padding-left:0;border:0;flex-basis:100%}.animation-controls button{font-size:12px!important;min-height:44px}.animation-controls{gap:20px}
+ .project-art{min-height:360px}.project-terminal{transform:none}.job-preview{transform:none}.contact-socials{flex-wrap:wrap;gap:20px}.contact-heading h2{font-size:clamp(30px,8.2vw,54px)}
+ footer{grid-template-columns:1fr!important}footer>*{grid-column:1!important;grid-row:auto!important}.guide-measure,.build-tools,.corner-mark>span{display:none}
+ .button{padding:0 14px;gap:16px;min-height:48px}.specialties{justify-content:flex-start}
+}
+
+/* The room hero is a scene with no navigation or control overlays. */
+body:not(.portfolio-entered) .room-tools,body:not(.portfolio-entered) .journey-controls{display:none!important}
+.scene-loading{position:absolute!important;width:1px;height:1px;padding:0;border:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.lamp-toggle>span{display:none}
+
+/* A text-free pixel celestial body doubles as the city theme switch. */
+.pixel-sky-toggle{position:fixed;z-index:2;right:8%;top:7%;width:64px;height:64px;padding:4px;background:none;border:0;cursor:pointer;transition:transform .2s;filter:drop-shadow(0 0 14px #b6ceff55)}
+.pixel-sky-toggle svg{width:100%;height:100%;display:none;shape-rendering:crispEdges}
+.pixel-sky-toggle[data-mode=night] .pixel-moon,.pixel-sky-toggle[data-mode=day] .pixel-sun{display:block}
+.pixel-sky-toggle[data-mode=day]{filter:drop-shadow(0 0 18px #ffe39b88)}
+.pixel-sky-toggle:hover{transform:scale(1.1)}
+.pixel-sky-toggle:focus-visible{outline:2px solid #b6b6ce;outline-offset:7px}
+@media(max-width:700px){.pixel-sky-toggle{width:52px;height:52px;right:7%;top:6%}}

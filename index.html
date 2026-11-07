@@ -1,540 +1,68 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-	<!-- Basic Meta Tags -->
-	<title>Yash Sanjaykumar Patel | Data Enthusiast Portfolio</title>
-	<meta name="description" content="Explore the portfolio of Yash Sanjaykumar Patel, a Data Scientist, showcasing projects in data pipelines, machine learning, AWS, Power BI, and more.">
-	<meta name="keywords" content="Yash Sanjaykumar Patel, Data Engineer, Data Scientist, Machine Learning, Data Pipelines, AWS, Power BI, Big Data, Python, SQL, Tableau, Data Engineering Projects, Data Analytics, Snowflake, Hadoop, Spark, Azure">
-	<meta name="author" content="Yash Sanjaykumar Patel">
-	
-	<!-- Open Graph / Facebook -->
-	<meta property="og:type" content="website">
-	<meta property="og:title" content="Yash Patel | Data Engineer & Data Scientist Portfolio">
-	<meta property="og:description" content="Discover Yash Patel's experience and skills in Data Engineering, Machine Learning, and Data Science, with projects in AWS, Power BI, and more.">
-	<meta property="og:url" content="https://yashpatel.work">
-	<meta property="og:image" content="https://yashpatel.work/images/yashpatel.jpg">
-	
-	<!-- Twitter -->
-	<meta name="twitter:card" content="summary_large_image">
-	<meta name="twitter:title" content="Yash Patel | Data Engineer & Data Scientist Portfolio">
-	<meta name="twitter:description" content="Explore Yash Patel's professional portfolio featuring projects in data pipelines, machine learning, AWS, and Power BI.">
-	<meta name="twitter:image" content="https://yashpatel.work/images/yashpatel.jpg">
-	
-	<!-- Mobile Compatibility -->
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-
-
-
-	
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE-edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	
-	<link rel="stylesheet" type="text/css" href="style.css">
-	<script src="https://kit.fontawesome.com/ee4434438c.js" crossorigin="anonymous"></script>
-	<link rel="icon" href="images/tab.png">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="theme-color" content="#09090b"/>
+  <script>try{document.documentElement.dataset.theme=localStorage.getItem('yash-portfolio-theme')==='light'?'light':'dark'}catch{document.documentElement.dataset.theme='dark'}</script>
+  <meta name="description" content="Yash Patel — AI engineer building intelligent agents, LLM applications, and real-world automation. Explore the work and the mind behind it."/>
+  <title>Yash Patel — AI Engineer | Intelligent Experiences</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=DM+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
 </head>
 <body>
-<div id="header">
-	<div class="container">
-		<nav>
-			<img src="images/logo2.png" class="logo">
-			<ul id="sidemenu">
-				<li><a href="#header">Home</a></li>
-				<li><a href="#about">About</a></li>
-				<li><a href="#services">Services</a></li>
-				<li><a href="#portfolio">My Work</a></li>
-				<li><a href="#contact">Contact</a></li>
-				<i class="fa-solid fa-xmark" onclick="closemenu()"></i>
-			</ul>
-			<i class="fa-solid fa-bars" onclick="openmenu()"></i>
-		</nav>
-		<div class="header-text">
-			<p class = "headline">D  A  T  A  -  E N T H U S I A S T</p>
-			<h1 style="color: #ababab">Empowering Decisions<br>with<br><span>Data Intelligence</span>.</h1>
-			
-		</div>
-	</div>
-</div>
-<!----------about------------>
-
-<div id="about">
-	<div class="container">
-		<div class="row">
-			<div class="about-col-1">
-<!-- 				IMAGE RATIO 5:7 -->
-				<img src="images/yashpatel.jpg">
-			</div>
-			<div class="about-col-2">
-				<h1 class="sub-title">About Me</h1>
-				<p><span>Yash Sanjaykumar Patel</span><br>I am an analytical and programming geek with active problem-solving skills with the help of modelling algorithms and statistical methods. Working to grow and expand my capabilities. <a href="#" class="bio-link" onclick="showBio(event, 'bio')">Read more.</a></p>
-
-				<div class="tab-titles">
-					<p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
-					<p class="tab-links" onclick="opentab('experience')">Experience</p>
-					<p class="tab-links" onclick="opentab('education')">Education</p>
-				</div>
-				
-				<div class="tab-contents active-tab" id="skills">
-					<ul>
-						<li><span>Data Scraping (Data Extraction)</span><br>Python, Advance Excel, Hadoop</li>
-						<li><span>Data Preprocessing (Data Cleaning & Organizing)</span><br>Python, Advance Excel, Hadoop</li>
-						<li><span>Data Analytics (Visual Representation of Insights)</span><br>Python, R, PowerBI/Tableau</li>
-						<li><span>Data Science (Future Prediction)</span><br>Python, Machine Learning, Deep Learning</li>
-						<li><span>Data Story Telling Expert (Explaining your data in simpler terms)</span><br>Data Science and Communication</li>
-						<li><span>Data Engineering (End to end data services)</span><br>ETL with AWS, Azure</li>
-					</ul>
-				</div>
-				<div class="tab-contents" id="experience">
-					<ul>
-						<li><span>September, 2023 - Present</span><br>Data Engineer (<a href="" style="color: #ff3131;">Mann Des Codes Inc.</a>)</li>
-						<li><span>May, 2023 - September,2023</span><br>Data Science Intern (<a href="https://enkiube.com/" style="color: #ff3131;">Enkiube Technologies Inc.</a>)</li>
-						<li><span>May, 2023 - August,2023</span><br>Data Engineer Intern (<a href="https://www.lambtoncollege.ca/" style="color: #ff3131;">Lambton College</a>)</li>
-						<li><span>September, 2020 - March, 2021</span><br>Machine Learning Engineer Intern (<a href="https://amkaysoftwaresolution.com/" style="color: #ff3131;">Amkay Software Solution</a>)</li>
-					</ul>
-				</div>
-				<div class="tab-contents" id="education">
-					<ul>
-						<li><span>2023 - 2024</span><br>Certified in Google Data Analytics Professional (<a href="https://grow.google.com/" style="color: #ff3131;">Google</a>)</li>
-						<li><span>2022 - 2023</span><br>Post Graduation Diploma of Big Data Analytics (<a href="https://www.lambtoncollege.ca/" style="color: #ff3131;">Lambton College</a>)</li>
-						<li><span>2017 - 2021</span><br>Bachelor of Information Technology (<a href="https://www.gtu.ac.in/" style="color: #ff3131;">Gujarat Technological University</a>)</li>
-					</ul>
-				</div>
-			</div>
-		</div>
-
-
-
-	<div id="bio" class="bio-popup">
-        <div class="bio-content">
-        	<i class="fa-solid fa-xmark btn4" onclick="closeBio('bio')"></i>
-            <span><h2>Yash Sanjaykumar Patel</h2></span>
-            <p>
-	<br><br>
-As a passionate programming geek, I possess a strong set of problem-solving skills that enable me to model algorithms and apply statistical methods to tackle complex challenges. My goal is to work with a company that can provide me with ample opportunities to learn, grow, and expand my capabilities.<br><br>
-
-In 2017, I immersed myself in the field of computer science and completed a 4-year <span>Bachelor's degree</span> in <span>Information Technology</span>. During my final semester, I had the opportunity to embark on a six-month industry exposure program where I contributed to <span>ML assistance</span> and built a <sapn>Customer Relationship Management (CRM)</sapn> software for the company.<br><br>
-
-It was during this project that I developed a keen interest in the world of data and its endless possibilities. Eager to explore this field further, I enrolled in a 2-year <span>Post Graduate Diploma of Big Data Analytics</span>. This program has equipped me with valuable skills in data analytics, enabling me to extract meaningful insights from complex datasets.<br><br>
-
-During my studies, I interned as a <span>Data Engineer</span>, where I worked on developing AWS pipelines, data cleaning, and dashboard creation. I also gained hands-on experience as a <span>Data Scientist Intern</span>, where I contributed to real-world data science projects and advanced my skills in data analysis and machine learning.<br><br>
-
-Currently, I am working as a <span>Data Engineer</span> in Toronto, ON, where I develop and optimize data pipelines, manage large databases, implement data warehousing solutions, and automate workflows. I also assist with various technical tasks beyond my core responsibilities.<br><br>
-
-I am excited to leverage my skills and experience further to contribute to organizations that value data-driven insights and innovation. I am actively seeking potential collaborations or career opportunities. Please feel free to reach out to me via email at <span>yashsanjaykumarpatel@gmail.com</span> to discuss potential opportunities.
-
-<span><a href="https://github.com/yashspatel/">GitHub Link: https://github.com/yashspatel</a> </span>
-		    
-		    </p>
-            
+<a class="skip-link" href="#main">Skip to content</a>
+<main id="main">
+  <div class="cinema-viewport" data-scene-state="loading" aria-hidden="true"><picture class="workspace-fallback"><source media="(max-width:700px)" srcset="/workspace-fallback-mobile.webp"/><img src="/workspace-fallback-desktop.webp" alt="" width="1440" height="1000"/></picture><canvas id="workspace-canvas"></canvas><div class="cinema-vignette"></div></div>
+  <div class="scene-loading" role="status"><span id="scene-loading-text">ASSEMBLING THE WORKSPACE</span></div>
+  <div class="room-tools"><button id="motion-toggle" aria-label="Pause scene animation" aria-pressed="false">Ⅱ</button></div>
+  <aside class="journey-controls" aria-label="Guided experience controls"><span id="journey-status" role="status">GUIDED VIEW</span><button id="tour-toggle" aria-label="Pause guided tour">Pause <span>Ⅱ</span></button><button id="tour-stop">Explore freely <span>↗</span></button></aside>
+  <section class="room-intro" id="intro" aria-labelledby="intro-heading"><h1 id="intro-heading" class="sr-only">Yash here... AI Engineer</h1></section>
+  <section class="delegation-section" id="delegate" aria-label="Zoom into the workspace monitor"></section>
+  <section class="build-hero" id="agent-workspace" aria-labelledby="hero-heading" data-construction="complete">
+    <div class="workspace-bar"><a href="#intro" class="workspace-file"><span class="file-icon">⊞</span> yash.portfolio <span class="file-divider">/</span><span class="file-current">live canvas</span></a><div class="workspace-bar-right"><span class="collaborator-dots" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="simulation-label">A COLLABORATIVE DESIGN SEQUENCE</span><button id="lamp-toggle" class="lamp-toggle" aria-label="Turn lamp on — light theme" aria-pressed="false"><svg viewBox="0 0 32 32" width="19" height="19" aria-hidden="true"><path d="M9 26h16M17 26V15m0 0-7-6 5-5 9 8-6 6-8-9m7 6 5-5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path class="lamp-rays" d="m8 16-3 2m7 1-1 4m-6-11H2" fill="none" stroke="currentColor" stroke-width="1.5"/></svg><span>LAMP OFF</span></button></div></div>
+    <div class="build-stage">
+      <div class="design-guides" aria-hidden="true"><span class="guide guide-vertical guide-left"></span><span class="guide guide-vertical guide-right"></span><span class="guide guide-horizontal"></span><span class="guide-measure">1440 / RESPONSIVE CANVAS</span><span class="guide-plus guide-plus-a">+</span><span class="guide-plus guide-plus-b">+</span></div>
+      <header class="site-header">
+        <a class="builder-wordmark selectable" data-build="logo" href="#intro" aria-label="Yash Patel home">YASH<span>.</span></a>
+        <nav class="desktop-nav" aria-label="Main navigation"><a data-build="nav-home" href="#intro">Home</a><a data-build="nav-about" href="#about">About</a><a data-build="nav-projects" href="#work">Projects <span>05</span></a><a data-build="nav-skills" href="#skills">Skills</a><a data-build="nav-contact" href="#contact">Contact <span>↗</span></a></nav>
+        <button class="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav"><span></span><span></span></button>
+      </header>
+      <nav id="mobile-nav" aria-label="Mobile navigation" hidden><a href="#intro">Home</a><a href="#about">About</a><a href="#work">Projects</a><a href="#skills">Skills</a><a href="#contact">Contact ↗</a></nav>
+      <div class="hero-content">
+        <div class="hero-copy">
+          <p class="hero-eyebrow selectable" data-build="eyebrow"><span class="tiny-indicator"></span> YASH PATEL / AI ENGINEER & BUILDER</p>
+          <div class="hero-heading-wrap selectable" data-build="heading"><span class="selection-label" aria-hidden="true">TEXT / AUTO LAYOUT</span><h2 class="builder-heading" id="hero-heading" aria-label="Building intelligent experiences."><span class="live-text">BUILDING INTELLIGENT EXPERIENCES.</span></h2><i class="resize-handle handle-tl" aria-hidden="true"></i><i class="resize-handle handle-tr" aria-hidden="true"></i><i class="resize-handle handle-bl" aria-hidden="true"></i><i class="resize-handle handle-br" aria-hidden="true"></i></div>
+          <p class="hero-description selectable" data-build="description" aria-label="AI Engineer building intelligent agents, LLM applications, and real-world automation."><span class="live-text">AI Engineer building intelligent agents, LLM applications, and real-world automation.</span></p>
+          <div class="hero-ctas"><a class="button button-primary selectable" data-build="cta-primary" href="#work">Explore Projects <span>↗</span></a><a class="button button-outline selectable" data-build="cta-secondary" href="#contact">Get in Touch <span>↗</span></a></div>
+          <div class="hero-note selectable" data-build="hero-note"><span>IDEAS → SYSTEMS → IMPACT</span><span>BASED IN INDIA.<br>BUILDING FOR EVERYWHERE.</span></div>
         </div>
-    </div>
-
-
-	</div>
-
-</div>
-<!-- ---------------------recommendations ----------------->
-
-<div id="recommendations">
-	<div class="container">
-		<h1 class="sub-title">Recommendations</h1>
-		<div class="recommendations-list">
-			<div class="recommendation" onclick="window.location='https://www.linkedin.com/in/yashsanjaykumarpatel/details/recommendations/';">
-				
-					<h2 style="display:inline-block;">
-	    					<img src="images/OlgaShugurova.jpeg" class="avatar">
-						<span style="padding: 10px;">
-						Dr. Olga Shugurova
-						</span>
-					</h2>		
-				<h4>Lifelong Learner I Researcher I Educational Leader</h4>
-				<p>It is my pleasure to recommend Yash Patel. 
-					Yash consistently demonstrates a hardworking and diligent nature, approaching tasks with both intelligence and resourcefulness. 
-					I have had the privilege of witnessing Yash's strong soft skills firsthand, including effective communication, adaptability, teamwork, and the ability to explain complex concepts to diverse audiences.
-					Yash's eagerness to help and contribute, both as a team player and as an individual professional, is truly commendable...
-				</p>
-			</div>
-			<div class="recommendation" onclick="window.location='https://www.linkedin.com/in/yashsanjaykumarpatel/details/recommendations/';">
-				<h2 style="display:inline-block;">
-					<img src="images/SinaKhosravi.jpeg" class="avatar">
-					<span style="padding: 10px;">
-					Sina Khosravi
-					</span>
-				</h2>	
-				<h4>CEO | Founder | Entrepreneur | Data Driven Problem Solver</h4>
-				<p>
-					I had the pleasure of being acquainted with this young fellow during the course I taught at Lambton College, "Neural Networks and Deep Learning". 
-					I was particularly impressed by his final project on grass/weed patch detection, which demonstrated his resourcefulness in utilizing available solutions to address hypothetical real-world problems.
-					I highly recommend Yash as a talented individual based on his exceptional contributions during his tenure at Enkiube Technologies...
-				</p>
-			</div>
-		</div>
-	</div>
-</div>
-<!-- ---------------------recommendations end----------------->
-<!-- --------------------services--------------------- -->
-<div id="services">
-	<div class="container">
-		<h1 class="sub-title">My Services</h1>
-		<div class="services-list">
-			<div class="service">
-				<i class="fa-solid fa-magnet"></i>
-				<h2>Data Extraction</h2>
-				<p>Revealing the Hidden: Expertly Extracting Valuable Data from the Depths of Your Sources.</p>
-				<!-- <a href="#">Learn more</a> -->
-				<i class="fa-solid fa-circle-info info-link" onclick="showInfo(event, 'info1')"></i>
-			</div>
-			<div class="service">
-				<i class="fa-solid fa-broom"></i>
-				<h2>Data Preprocessing</h2>
-				<p>From Chaos to Clarity: Converting Your Raw Data into Organized Insights with Expert Data Preprocessing.</p>
-				<!-- <a href="#">Learn more</a> -->
-				<i class="fa-solid fa-circle-info info-link" onclick="showInfo(event, 'info2')"></i>
-			</div>
-			<div class="service">
-				<i class="fa-solid fa-chart-simple"></i>
-				<h2>Data Analytics</h2>
-				<p>Illuminating Your Path: Uncover Meaningful Insights through Advanced Data Analytics and Engaging Visualizations.</p>
-				<!-- <a href="#">Learn more</a> -->
-				<i class="fa-solid fa-circle-info info-link" onclick="showInfo(event, 'info3')"></i>
-			</div>
-			<div class="service">
-				<i class="fa-solid fa-magnifying-glass-dollar"></i>
-				<h2>Future Prediction</h2>
-				<p>Charting Tomorrow Today: Harness the Power of Predictive Data Science to Shape Your Future Success.</p>
-				<!-- <a href="#">Learn more</a> -->
-				<i class="fa-solid fa-circle-info info-link" onclick="showInfo(event, 'info4')"></i>
-			</div>
-			<div class="service">
-				<i class="fa-solid fa-person-chalkboard"></i>
-				<h2>Data Story Telling</h2>
-				<p>Translating Complexity: Unveiling Your Data's Tale in Simple, Impactful Narratives.</p>
-				<!-- <a href="#">Learn more</a> -->
-				<i class="fa-solid fa-circle-info info-link" onclick="showInfo(event, 'info5')"></i>
-			</div>
-		</div>
-
-	</div>
-
-	<div id="info1" class="info-popup">
-        <div class="info-content">
-        	<i class="fa-solid fa-xmark btn4" onclick="closeInfo('info1')"></i>
-            <span><h2>Data Extraction</h2></span>
-            <p><br><br>Data extraction involves retrieving or identifying relevant data from a variety of sources. It's about finding the valuable nuggets of information within vast, often unstructured, data sources. This is a critical first step in the data analysis process, setting the foundation for all subsequent steps.<br><br>
-
-The key components of a data extraction service could include:<br><br>
-
-<span>Source Identification:</span> This involves determining where the relevant data for your analysis is located. It might be in databases, spreadsheets, text files, APIs, web pages, PDFs, or even in unstructured formats like images or videos.<br><br>
-
-<span>Data Retrieval:</span> This is the process of actually pulling the data from its source. The complexity of this step can vary widely depending on the source and format of the data.<br><br>
-
-<span>Data Validation:</span> After the data has been retrieved, it's important to verify that the data is accurate and relevant for the analysis. This can involve cross-checking with other sources, checking for consistency, or even manually reviewing a sample of the data.<br><br>
-
-<span>Data Formatting:</span> Once the data has been retrieved and validated, it often needs to be formatted or structured in a way that makes it suitable for analysis. This could involve parsing text files, converting data types, or transforming unstructured data into a structured format.</p>
-            
+        <div class="hero-right">
+          <div class="preview-label"><span>IN THE WORKSHOP</span><span>01 / 05</span></div>
+          <article class="hero-project selectable" data-build="preview" aria-label="Featured project: Splitwise MCP Server"><span class="selection-label" aria-hidden="true">FRAME / PROJECT PREVIEW</span><div class="preview-top"><span class="preview-icon">↗</span><span>TOOLS FOR INTELLIGENCE</span><span class="preview-live">● MCP</span></div><div class="agent-diagram" aria-hidden="true"><div class="diagram-line line-a"></div><div class="diagram-line line-b"></div><div class="diagram-node node-human"><span>YOU</span><small>A simple request</small></div><div class="diagram-node node-agent"><span class="agent-symbol">✳</span><b>THE AGENT</b><small>Reason. Plan. Act.</small></div><div class="diagram-node node-tool"><span>↗</span><b>MCP</b><small>Useful tools</small></div><span class="diagram-signal signal-a"></span><span class="diagram-signal signal-b"></span></div><div class="preview-project-copy"><p>FEATURED BUILD / 2026 PORTFOLIO</p><h2>Splitwise<br>MCP Server<span>↗</span></h2><div class="preview-tags"><span>PYTHON</span><span>FASTMCP</span><span>LANGGRAPH</span></div></div><a class="preview-footer" href="https://github.com/yashspatel/splitwise-mcp-server" target="_blank" rel="noopener noreferrer"><span>FROM A CONVERSATION TO AN ACTION.</span><span>↗</span></a><i class="resize-handle handle-tl" aria-hidden="true"></i><i class="resize-handle handle-tr" aria-hidden="true"></i><i class="resize-handle handle-bl" aria-hidden="true"></i><i class="resize-handle handle-br" aria-hidden="true"></i><span class="size-label" aria-hidden="true">FRAME / FIT TO GRID</span></article>
+          <div class="build-tools" aria-hidden="true"><span>ACCENT</span><i class="swatch swatch-blue"></i><i class="swatch swatch-red" data-build="color-red"></i><span class="swatch-value">#EF4444</span></div>
+          <div class="corner-mark selectable" data-build="decoration" aria-hidden="true"><svg viewBox="0 0 80 80"><path d="M6 40h68M40 6v68M16 16l48 48M16 64l48-48" fill="none" stroke="currentColor" stroke-width="9"/></svg><span>ALWAYS<br>IN THE MAKING.</span></div>
         </div>
+      </div>
+      <div class="cursor-layer" aria-hidden="true"></div>
+      <div class="construction-footer"><div class="build-status"><i></i><span id="construction-status" role="status" aria-live="polite">DESIGN COMPLETE.</span><span id="agent-count">4 AGENTS / ONE SHARED VISION</span></div><div class="animation-controls" aria-label="Introduction controls"><button id="pause-intro" aria-label="Pause introduction" hidden>Pause</button><button id="skip-intro" hidden>Skip Intro <span>↗</span></button><button id="replay-intro">Replay build <span>↻</span></button></div></div>
     </div>
-    <div id="info2" class="info-popup">
-
-        <div class="info-content">
-        	<i class="fa-solid fa-xmark btn4" onclick="closeInfo('info2')"></i>
-            <span><h2>Data Preprocessing</h2></span>
-            <p><br><br>Data preprocessing is a crucial step in the data analysis pipeline where raw, messy data is transformed into a format that is easier to work with and more suitable for further analysis. It's about making data 'machine-ready', and it often determines the quality of the output you can derive from your data.<br><br>
-
-Here are the key components that a data preprocessing service could cover:<br><br>
-
-<span>Data Cleaning:</span> This involves filling in missing values, smoothing noisy data, identifying or removing outliers, and resolving inconsistencies. This step is all about addressing the imperfections in the dataset that could potentially skew your results.<br><br>
-
-<span>Data Integration:</span> This is the process of combining data from different sources, which may involve different formats, into a coherent dataset. This can be crucial when dealing with data that comes from multiple sources, which is often the case in today's data-rich environment.<br><br>
-
-<span>Data Transformation:</span> This process converts data from one format or structure into another. It could involve normalizing data (scaling it to a standard range), aggregating data, or converting continuous variables into categorical ones. The goal is to transform the data in a way that makes it easier to draw meaningful insights.<br><br>
-
-<span>Data Reduction:</span> This involves simplifying your data without losing its essence. Techniques can include dimensionality reduction (removing redundant attributes), record sampling (using a smaller representative dataset), or discretization (converting continuous attributes into categorical ones). The goal is to make the data more manageable while preserving its ability to generate valuable insights.<br><br>
-
-<span>Feature Engineering:</span> This process involves creating new, predictive features from your data. It's about turning your raw data into features that better represent the underlying problem to the predictive models, resulting in improved model accuracy</p>
-            
-        </div>
-    </div>
-    <div id="info3" class="info-popup">
-        <div class="info-content">
-        	<i class="fa-solid fa-xmark btn4" onclick="closeInfo('info3')"></i>
-            <span><h2>Data Analytics</h2></span>
-            <p><br><br>Data Analytics and Insight Visualization are two interconnected steps in the data analysis process. Data analytics involves using techniques to discover and interpret meaningful patterns in data, while visualization aims to present these findings in a visual and easily understandable format.<br><br>
-
-Here's a breakdown of what these services may include:<br><br>
-
-<span>Exploratory Data Analysis (EDA):</span> This is an approach to analyzing datasets to summarize their main characteristics, often with visual methods. EDA is used to see what the data can tell us beyond the formal modeling or hypothesis testing task and provides a critical foundation for the subsequent analysis.<br><br>
-
-<span>Statistical Analysis & Hypothesis Testing:</span> This involves the application of statistical techniques to interpret data and make decisions. Hypothesis testing is a statistical method that is used in making statistical decisions using experimental data.<br><br>
-
-<span>Predictive Analytics & Machine Learning:</span> Predictive analytics uses statistical algorithms and machine learning techniques to identify the likelihood of future outcomes based on historical data. Machine learning algorithms can be used to build models that learn from data and make predictions or decisions without being explicitly programmed to perform the task.<br><br>
-
-<span>Data Visualization:</span> This involves creating graphical representations of information and data. By using visual elements like charts, graphs, and maps, data visualization tools provide an accessible way to see and understand trends, outliers, and patterns in data.<br><br>
-
-<span>Insight Generation:</span> This is about drawing meaningful conclusions and actionable insights from the analysis. This could involve identifying key trends, highlighting significant correlations, or pinpointing areas of interest.<br><br>
-
-<span>Data Reporting & Storytelling:</span> This involves communicating the results of the data analysis in a clear and compelling way, often combining data visualizations with narrative to tell a story with the data.</p>
-            
-        </div>
-    </div>
-    <div id="info4" class="info-popup">
-        <div class="info-content">
-        	<i class="fa-solid fa-xmark btn4" onclick="closeInfo('info4')"></i>
-            <span><h2>Future Prediction</h2></span>
-            <p><br><br>Future prediction with data science, often referred to as predictive analytics or predictive modeling, involves using statistical techniques and machine learning algorithms to analyze current and historical facts to make predictions about future or otherwise unknown events.<br><br>
-
-Here's what a future prediction service with data science and machine learning might include:<br><br>
-
-<span>Data Collection & Preprocessing:</span> The predictive modeling process begins with collecting raw data and preprocessing it to make it suitable for use in machine learning algorithms. This could involve cleaning, integrating, transforming, reducing, and engineering features from the data.<br><br>
-
-<span>Model Building:</span> This involves choosing an appropriate algorithm for the prediction task and using the preprocessed data to train a predictive model. Depending on the problem, this could involve regression analysis, decision trees, neural networks, or other machine learning techniques.<br><br>
-
-<span>Model Evaluation & Selection:</span> After the models have been trained, they must be evaluated to determine their accuracy and reliability. This can involve a variety of statistical techniques, and the best performing model is selected for the prediction task.<br><br>
-
-<span>Prediction Generation:</span> Once the model has been selected, it is used to generate predictions on new, unseen data. The model uses the patterns it learned during the training phase to make predictions about the future.<br><br>
-
-<span>Model Deployment & Maintenance:</span> After the model has been used to generate predictions, it can be deployed to a production environment where it can be used to make real-time predictions. The model may also need to be periodically retrained or updated as new data becomes available.<br><br>
-
-<span>Insight Communication:</span> The results of the predictions are then communicated to the relevant stakeholders, often in the form of a report or dashboard. This can also involve explaining the results in understandable terms, and providing recommendations based on the predictions.</p>
-            
-        </div>
-    </div>
-    <div id="info5" class="info-popup">
-        <div class="info-content">
-        	<i class="fa-solid fa-xmark btn4" onclick="closeInfo('info5')"></i>
-            <span><h2>Data Story Telling</h2></span>
-            <p><br><br>Data storytelling involves translating complex data analyses into layman's terms and presenting them in an engaging and understandable manner. It's about creating a narrative that gives context to the numbers, making the insights derived from the data more accessible and actionable.<br><br>
-
-A data storytelling service could include:<br><br>
-
-<span>Data Analysis:</span> Before you can tell a story with data, you first need to understand what the data is saying. This involves using various data analytics techniques to uncover insights from the data.<br><br>
-
-<span>Narrative Development:</span> This involves creating a storyline or narrative that frames the data in a certain context. The narrative should be tailored to the audience and should aim to engage them, evoke emotion, or prompt action.<br><br>
-
-<span>Data Visualization:</span> Visual representations of data can greatly enhance the storytelling process. They can help to illustrate the patterns, trends, and insights that are being discussed in the narrative.<br><br>
-
-<span>Insight Communication:</span> This involves clearly and concisely communicating the insights derived from the data. It's not just about what the data says, but what it means for the audience.<br><br>
-
-<span>Interactivity:</span> Depending on the medium, data storytelling can also involve creating interactive visualizations or dashboards that allow the audience to explore the data on their own. This can help to engage the audience and allow them to discover their own insights.</p>
-            
-        </div>
-    </div>
-</div>
-
-<!-- ---------portfolio----------- -->
-<div id="portfolio">
-	<div class="container">
-		<h1 class="sub-title">My Work</h1>
-		<div class="work-list">
-			<div class="work">
-<!-- 				Put Images of 4:5 ratio size -->
-				<img src="images/ca_politics_logo.jpg">
-				<div class="layer">
-					<h3>Canadian Politics: Sentiment Analysis</h3>
-					<p>End to end Data Engineering (ETL) in AWS</p>
-					<a href="ca_politics.html"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-				</div>
-			</div>
-			<div class="work">
-				<img src="images/covid.jpg">
-				<div class="layer">
-					<h3>Covid-19 Impact Visualizer</h3>
-					<p>Dashboard in Microsoft Power BI</p>
-					<a href="covid19_visualizer.html"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-				</div>
-			</div>
-			
-			<div class="work">
-				<img src="images/gun.jpg">
-				<div class="layer">
-					<h3>Sentiment Analysis</h3>
-					<p>Gun Ownership without license</p>
-					<a href="sentiment_analysis.html"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-				</div>
-			</div>
-			
-			<div class="work hidden">
-				<img src="images/title.jpeg">
-				<div class="layer">
-					<h3>Netflix Trend Analytics</h3>
-					<p>Dashboard In Tableau</p>
-					<a href="netflix.html"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-				</div>
-			</div>
-			<div class="work hidden">
-				<img src="images/hr_analytics_tile.png">
-				<div class="layer">
-					<h3>Human Resources Analytics</h3>
-					<p>Dashboard In Tableau</p>
-					<a href="hr_analytics.html"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-				</div>
-			</div>
-			<div class="work hidden">
-				<img src="images/bookstore.jpg">
-				<div class="layer">
-					<h3>Store Sales Analysis</h3>
-					<p>For offline Bookstore</p>
-					<a href="bookstore_sales_analysis.html"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-				</div>
-			</div>
-			<div class="work hidden">
-				<img src="images/weed.jpg">
-				<div class="layer">
-					<h3>Weed Detection</h3>
-					<p>YOLOv8 Instance Segmentation</p>
-					<a href="weed_detection.html"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-				</div>
-			</div>
-			
-		</div>
-		<a id="seeMoreBtn" onclick="showAllProjects()" class="btn">See more</a>
-		<a id="showLessBtn" onclick="showLessProjects()" style="display:none" class="btn hidden2">Show Less</a>
-	</div>
-</div>
-<!-- ----------contact--------- -->
-<div id="contact">
-	<div class="container">
-		<div class="row">
-			<div class="contact-left">
-				<h1 class="sub-title">Contact Me</h1>
-				<p><i class="fa-solid fa-paper-plane"></i> contact@yashpatel.work</p>
-				<p><i class="fa-solid fa-square-phone"></i> +1 (647) 446-6971</p>
-				<div class="social-icons">
-					<a href="https://www.linkedin.com/in/yashsanjaykumarpatel/"><i class="fa-brands fa-linkedin"></i></a>
-					<a href="https://twitter.com/PatelYash_29"><i class="fa-brands fa-square-twitter"></i></a>
-					<a href="https://github.com/yashspatel"><i class="fa-brands fa-square-github"></i></a>
-				</div>
-				<a href="Resume.pdf" class="btn btn2">Resume</a>
-			</div>
-			<div class="contact-right">
-				<form name="submit-to-google-sheet">
-					<input type="text" name="Name" placeholder="Your Name" required>
-					<input type="email" name="Email" placeholder="Your Email" required>
-					<textarea name="Message" rows="6" placeholder="Your Message"></textarea>
-					<button type="submit" class="btn btn2">Submit</button>
-				</form>
-				<span id="msg"></span>
-			</div>
-		</div>
-	</div>
-	<div class="copyright">
-		<p>Copyright © Yash Sanjaykumar Patel</p>
-	</div>
-</div>
-<script type="text/javascript">
-	// Detect the user's operating system
-let os = null;
-if (/Android/.test(navigator.userAgent)) {
-    os = 'android';
-} else if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
-    os = 'ios';
-} else {
-    os = 'other';
-}
-
-// Apply different CSS rules based on the detected OS
-let element = document.getElementById("header");
-if (os === 'android' || os === 'other') {
-    element.style.backgroundAttachment = 'fixed';
-} else if (os === 'ios') {
-    // Apply iOS-specific styles here
-}
-</script>
-<script type="text/javascript">
-	var tablinks = document.getElementsByClassName("tab-links");
-	var tabcontents = document.getElementsByClassName("tab-contents");
-	function opentab(tabname){
-		for(tablink of tablinks){
-			tablink.classList.remove("active-link");
-		}
-		for(tabcontent of tabcontents){
-			tabcontent.classList.remove("active-tab");
-		}
-		event.currentTarget.classList.add("active-link");
-		document.getElementById(tabname).classList.add("active-tab");
-	}
-</script>
-<script type="">
-	var sidemenu = document.getElementById("sidemenu");
-
-	function openmenu(){
-		sidemenu.style.right = "0";
-	}
-	function closemenu(){
-		sidemenu.style.right = "-200px";
-	}
-</script>
-<script>
-	const scriptURL = 'https://script.google.com/macros/s/AKfycbz6gh1RJp2Ex0i9Cp5l27tWN4sc4erKeZpUchY9OYgoBuJmPq1IHGalH1DNxPtW3q_b/exec'
-	const form = document.forms['submit-to-google-sheet']
-	const msg = document.getElementById("msg")
-
-	form.addEventListener('submit', e => {
-		e.preventDefault()
-		fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-			.then(response => {
-				msg.innerHTML = "Message sent successfully!"
-				setTimeout(function(){
-					msg.innerHTML = ""
-				}, 5000)
-				form.reset()
-			})
-			.catch(error => console.error('Error!', error.message))
-  })
-</script>
-
-<!-- See more (My Work) -->
-<script>
-	function showAllProjects() {
-  var hiddenProjects = document.getElementsByClassName("hidden");
-  for (var i = 0; i < hiddenProjects.length; i++) {
-    hiddenProjects[i].style.display = "inline-block";
-  }
-  
-  var seeMoreBtn = document.getElementById("seeMoreBtn");
-  seeMoreBtn.style.display = "none";
-  
-  var showLessBtn = document.getElementById("showLessBtn");
-  showLessBtn.style.display = "block";
-}
-
-function showLessProjects() {
-  var hiddenProjects = document.getElementsByClassName("hidden");
-  for (var i = 0; i < hiddenProjects.length; i++) {
-    hiddenProjects[i].style.display = "none";
-  }
-  
-  var seeMoreBtn = document.getElementById("seeMoreBtn");
-  seeMoreBtn.style.display = "block";
-
-  
-  var showLessBtn = document.getElementById("showLessBtn");
-  showLessBtn.style.display = "none";
-}
-
-
-</script>
-
-<script type="text/javascript">
-	function showInfo(event, id) {
-    	event.preventDefault();  
-    	document.getElementById(id).style.display = 'block';
-	}
-
-	function closeInfo(id) {
-    	document.getElementById(id).style.display = 'none';
-	}
-
-
-	function showBio(event, id) {
-    	event.preventDefault();  
-    	document.getElementById(id).style.display = 'block';
-	}
-
-	function closeBio(id) {
-    	document.getElementById(id).style.display = 'none';
-	}
-</script>
+    <div class="build-progress" aria-hidden="true"><span></span></div>
+  </section>
+  <div class="specialties"><span>AGENTIC AI</span><b>+</b><span>LLM APPLICATIONS</span><b>+</b><span>MCP INTEGRATIONS</span><b>+</b><span>REAL-WORLD AUTOMATION</span><b>+</b></div>
+  <section class="about section" id="about" aria-labelledby="about-heading"><div class="section-eyebrow reveal"><span>01 / THE MIND BEHIND THE BUILD</span><span>CURIOUS BY DEFAULT.</span></div><div class="about-grid"><div class="about-copy reveal"><h2 id="about-heading">THINK DEEPLY.<br>BUILD <span class="accent">USEFULLY.</span></h2><p>I’m Yash, an AI engineer connecting models, data, and the people who use them. I’m interested in what happens when intelligence leaves the notebook and starts doing useful work.</p><p>My work spans agentic workflows, MCP integrations, document understanding, computer vision, and cloud data pipelines. From studying big data in Canada to building software in India, the instinct is the same: learn something, build something, make it better.</p><a class="text-link" href="/resume.pdf" target="_blank" rel="noopener">The full story, in a PDF <span>↗</span></a></div><div class="about-photo reveal"><img src="/photos/yash-portrait.webp" alt="Yash Patel wearing a gray blazer and smiling outdoors" width="720" height="900" loading="lazy"/><div class="photo-caption"><span>YASH PATEL</span><span>HUMAN FIRST. BUILDER ALWAYS.</span></div><span class="photo-cross" aria-hidden="true">+</span></div></div></section>
+  <section class="work section" id="work" aria-labelledby="work-heading"><div class="section-eyebrow reveal"><span>02 / SELECTED BUILDS</span><span>LESS THEORY. MORE EXECUTION.</span></div><div class="section-heading reveal"><h2 id="work-heading">IDEAS THAT<br><span class="accent">BECAME THINGS.</span></h2><p>Agents, applications, and the<br>systems that connect them.</p></div><div class="featured-projects">
+    <article class="project project-featured reveal"><div class="project-art splitwise-art" aria-hidden="true"><span class="art-label">01 / TOOL-ENABLED INTELLIGENCE</span><div class="project-terminal"><div><span>● ● ●</span><span>splitwise_agent.py</span></div><p><span>you</span> Split dinner with the team.</p><hr/><p class="terminal-muted">agent / preparing expense</p><p>✓ Connected to MCP server</p><p>✓ Expense preview generated</p><strong>CONFIRM BEFORE EXECUTE <span>↗</span></strong><p class="terminal-muted">Safe actions. Shared expenses.</p></div><span class="art-cross">+</span></div><div class="project-heading"><span>01 / AGENTIC AI</span><a href="https://github.com/yashspatel/splitwise-mcp-server" target="_blank" rel="noopener noreferrer" aria-label="View Splitwise MCP Server on GitHub">↗</a></div><h3>Splitwise MCP Server</h3><p>A local MCP server connecting LLM agents to shared expenses, with preview-and-confirm gating before writes and reliable asynchronous execution.</p><div class="tags"><span>Python</span><span>FastMCP</span><span>LangGraph</span></div></article>
+    <article class="project project-featured reveal"><div class="project-art job-art" aria-hidden="true"><span class="art-label">02 / FULL-STACK INTELLIGENCE</span><div class="job-preview"><div class="job-header"><b>JOB PILOT<span>↗</span></b><span>YOUR NEXT CHAPTER.</span></div><div class="job-input">AI / ML Engineer <span>⌕</span></div><div><span>01</span><p><b>Discover.</b><small>Find roles that fit you.</small></p><span>↗</span></div><div><span>02</span><p><b>Match.</b><small>Your resume, in context.</small></p><span>◎</span></div><div><span>03</span><p><b>Track.</b><small>Every application in one place.</small></p><span>✓</span></div></div></div><div class="project-heading"><span>02 / AI APPLICATIONS</span><button class="detail-button" data-project="job" aria-label="Read JobPilot project notes">↗</button></div><h3>JobPilot</h3><p>AI-assisted job discovery, resume matching with TF-IDF and cosine similarity, and application tracking in one workflow, with search memory for job-specific guidance.</p><div class="tags"><span>FastAPI</span><span>React</span><span>OpenAI</span></div></article>
+    </div><div id="additional-projects" class="additional-projects" aria-label="More projects"></div><p class="project-note reveal">The next three builds are on the board. Detailed project notes are being prepared.</p></section>
+  <section class="skills section" id="skills" aria-labelledby="skills-heading"><div class="section-eyebrow reveal"><span>03 / THE TOOLKIT</span><span>GOOD TOOLS. THOUGHTFUL SYSTEMS.</span></div><div class="skills-layout"><h2 id="skills-heading" class="reveal">MY BUILDING<br><span class="accent">BLOCKS.</span></h2><div class="skill-groups"><div class="reveal"><span>01 / INTELLIGENCE</span><p>LangChain · LangGraph · MCP · RAG<br>LLM Applications · Agentic AI · Prompt Engineering</p></div><div class="reveal"><span>02 / ENGINEERING</span><p>Python · FastAPI · Flask · Django<br>PostgreSQL · Neo4j · FAISS · ChromaDB</p></div><div class="reveal"><span>03 / MODELS & INFRASTRUCTURE</span><p>PyTorch · TensorFlow · scikit-learn<br>AWS · Azure · GCP · Docker · CI/CD</p></div></div></div></section>
+  <section class="experience section" id="experience" aria-labelledby="experience-heading"><div class="section-eyebrow reveal"><span>04 / ALONG THE WAY</span><a href="/resume.pdf" target="_blank" rel="noopener">FULL RESUME ↗</a></div><h2 id="experience-heading" class="reveal">LEARNING<br><span class="accent">THROUGH DOING.</span></h2><div class="experience-list"><article class="experience-row reveal"><span>SEP 2023 — JAN 2024</span><div><h3>Data Scientist</h3><p>Enkiube Technologies Inc. <span>· Toronto, Canada</span></p><p>Built document-understanding and LLM question-generation pipelines. Managed 5,000+ labeled images, helping improve model accuracy from 60% to 85%.</p></div><span>01</span></article><article class="experience-row reveal"><span>MAY 2023 — AUG 2023</span><div><h3>Data Engineer Associate</h3><p>Lambton College <span>· Mississauga, Canada</span></p><p>Built an end-to-end AWS ETL pipeline with cleaning and validation, plus Power BI dashboards that made the results useful to stakeholders.</p></div><span>02</span></article><article class="experience-row reveal"><span>SEP 2020 — MAY 2021</span><div><h3>Machine Learning Engineer</h3><p>Amkay Software Solutions <span>· Ahmedabad, India</span></p><p>Developed receipt extraction with TensorFlow and OCR. Led a five-person CRM team, owning backend architecture and four-tier access control.</p></div><span>03</span></article></div><div class="education reveal"><span>THE FOUNDATIONS</span><div><h3>Big Data Analytics</h3><p>Postgraduate Diploma · Lambton College, Canada</p></div><div><h3>Information Technology</h3><p>Bachelor of Engineering · Gujarat Technological University</p></div></div></section>
+  <section class="contact section" id="contact" aria-labelledby="contact-heading"><div class="section-eyebrow reveal"><span>05 / MAKE THE NEXT MOVE</span><span>THE CANVAS IS OPEN.</span></div><div class="contact-heading reveal"><h2 id="contact-heading">LET’S BUILD<br>SOMETHING<br><span class="accent">THAT MATTERS.</span></h2><a class="contact-arrow" href="mailto:yashsanjaykumarpatel@gmail.com" aria-label="Email Yash Patel">↗</a></div><div class="contact-bottom reveal"><p>A project, a role, or an interesting problem.<br>I’d like to hear what you’re thinking.</p><div class="email-actions"><a href="mailto:yashsanjaykumarpatel@gmail.com">yashsanjaykumarpatel@gmail.com ↗</a><button id="copy-email" aria-label="Copy email address">COPY EMAIL <span>⧉</span></button><span id="copy-status" class="sr-only" role="status"></span></div></div><div class="contact-socials reveal"><a href="https://github.com/yashspatel" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="https://www.linkedin.com/in/yashsanjaykumarpatel/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href="/resume.pdf" target="_blank" rel="noopener">Resume ↓</a></div></section>
+</main>
+<footer><a class="footer-logo" href="#intro">YASH<span>.</span></a><p>THOUGHTFULLY BUILT. CONSTANTLY EVOLVING.</p><a href="#intro">BACK TO TOP ↑</a><span>© <span id="year">2026</span> YASH PATEL</span></footer>
+<dialog id="project-dialog" aria-labelledby="dialog-title"><button class="dialog-close" aria-label="Close project notes">×</button><p class="eyebrow">BEHIND THE BUILD</p><h2 id="dialog-title"></h2><div id="dialog-content"></div></dialog>
+<script type="module" src="/src/main.js"></script>
 </body>
 </html>

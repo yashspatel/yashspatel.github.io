@@ -1,0 +1,16 @@
+node_modules/
+dist/
+.vite/
+artifacts/
+__pycache__/
+
+# Local snapshots, reference photos and development conversation notes
+backups/
+images/
+PROJECT_SUMMARY.md
+todo.txt
+hero_animation.txt
+animation.txt
+.env
+.env.*
+!.env.example
