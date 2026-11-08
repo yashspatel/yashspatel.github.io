@@ -49,3 +49,8 @@ body:not(.portfolio-entered) .room-tools,body:not(.portfolio-entered) .journey-c
 .pixel-sky-toggle:hover{transform:scale(1.1)}
 .pixel-sky-toggle:focus-visible{outline:2px solid #b6b6ce;outline-offset:7px}
 @media(max-width:700px){.pixel-sky-toggle{width:52px;height:52px;right:7%;top:6%}}
+
+/* Compact agent pointers, shared across desktop and touch layouts. */
+.global-agent-pool .virtual-cursor>svg,.section-cursor-layer .virtual-cursor>svg{width:12px;height:16px}
+.virtual-cursor>.agent-ibeam{left:-5px;top:-2px}
+.virtual-cursor>.agent-ibeam>svg{width:10px;height:16px}
