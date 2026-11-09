@@ -54,3 +54,11 @@ body:not(.portfolio-entered) .room-tools,body:not(.portfolio-entered) .journey-c
 .global-agent-pool .virtual-cursor>svg,.section-cursor-layer .virtual-cursor>svg{width:12px;height:16px}
 .virtual-cursor>.agent-ibeam{left:-5px;top:-2px}
 .virtual-cursor>.agent-ibeam>svg{width:10px;height:16px}
+
+#motion-preference{font:11px var(--mono);min-height:36px;padding:6px 12px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
+html[data-motion=reduced] .journey-controls{display:flex!important;z-index:60}
+html[data-motion=reduced] #motion-preference{background:#62508c;color:#fff;border-color:#a18bc4}
+.workspace-fallback{will-change:transform}
+
+.journey-controls{flex-wrap:wrap;max-width:92vw}
+html[data-motion=reduced] .journey-controls>span,html[data-motion=reduced] #tour-toggle{display:none}

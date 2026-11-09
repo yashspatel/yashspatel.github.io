@@ -23,8 +23,8 @@ export function createVisibleBuilder(elements,motionPreference,{enabled=true,onC
   });
   function merge(intervals){
     const result=[];
-    intervals.toSorted((a,b)=>a[0]-b[0]).forEach(([start,end])=>{
-      const previous=result.at(-1);
+    [...intervals].sort((a,b)=>a[0]-b[0]).forEach(([start,end])=>{
+      const previous=result[result.length-1];
       if(previous&&start<=previous[1]+.003)previous[1]=Math.max(previous[1],end);else result.push([start,end]);
     });return result;
   }
@@ -95,7 +95,7 @@ export function createVisibleBuilder(elements,motionPreference,{enabled=true,onC
       return;
     }
     if(job.type==='type'&&job.travel>=.98){
-      const text=part.texts.filter(t=>t.node.textContent.length).at(-1);
+      const text=part.texts.filter(t=>t.node.textContent.length).slice(-1)[0];
       if(text){const range=document.createRange();range.selectNodeContents(text.node);range.collapse(false);const caret=range.getBoundingClientRect();if(caret.height){job.cursors[0].position(clamp(caret.right+3,8,innerWidth-100),clamp(caret.bottom-18,76,innerHeight-75));return;}}
     }
     const progress=job.travel;

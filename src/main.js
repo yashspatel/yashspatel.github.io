@@ -1,6 +1,8 @@
 import './builder.css';
 import './hybrid.css';
 import './readability.css';
+import { initializeMotion } from './motion.js';
+import { createFallbackScene } from './scene/fallback-scene.js';
 import { initializeTheme } from './theme.js';
 import { createConstructionScene } from './construction/controller.js';
 import { pendingProjects } from './project-data.js';
@@ -9,7 +11,7 @@ import { createGuidedTour } from './experience/guided-tour.js';
 
 initializeTheme();
 
-const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
+const motionPreference = initializeMotion();
 document.querySelector('.room-tools').prepend(document.querySelector('#lamp-toggle'));
 document.querySelector('.agent-diagram').dataset.build='diagram';
 document.querySelector('.preview-tags').dataset.build='preview-tags';
@@ -105,4 +107,5 @@ import('./scene/workspace-scene.js').then(({createWorkspaceScene})=>{
   document.querySelector('.cinema-viewport').dataset.sceneState='fallback';
   document.querySelector('.scene-loading').classList.add('loaded');
   document.querySelector('#motion-toggle').hidden=true;
+  createFallbackScene(motionPreference);
 });

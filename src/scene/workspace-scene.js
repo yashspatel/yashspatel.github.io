@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import { createFallbackScene } from './fallback-scene.js';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { createWorkspace } from './workspace.js';
@@ -19,7 +20,7 @@ export function createWorkspaceScene(canvas,motionPreference) {
   const destination=document.querySelector('#agent-workspace');
   let renderer;
   try{renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:false,powerPreference:'high-performance'})}
-  catch{viewport.dataset.sceneState='fallback';loading.classList.add('loaded');motionButton.hidden=true;return;}
+  catch{viewport.dataset.sceneState='fallback';loading.classList.add('loaded');motionButton.hidden=true;return createFallbackScene(motionPreference);}
   renderer.setClearColor(0x0c0d16);renderer.outputColorSpace=THREE.SRGBColorSpace;
   renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.2;
   renderer.shadowMap.enabled=innerWidth>700&&sceneConfig.shadows;renderer.shadowMap.type=THREE.PCFSoftShadowMap;
@@ -35,9 +36,10 @@ export function createWorkspaceScene(canvas,motionPreference) {
   const lampPointer=new THREE.Vector2(),raycaster=new THREE.Raycaster();
   const driver={progress:0};
   let clock=0,previous=0,paused=false,pausedProgress=0,lost=false,disposed=false,frames=0;
-  let tween,landing=innerHeight*2;
+  let tween,landing=innerHeight*2,contextFallback=null;
   function measureLanding(){landing=destination.getBoundingClientRect().top+scrollY;return landing}
   function update(){
+    if(lost)return;
     const p=driver.progress;
     viewport.style.opacity=String(motionPreference.matches ? .48 : 1-THREE.MathUtils.smoothstep(p,.696,.6995));
     document.body.style.setProperty('--monitor-approach',String(THREE.MathUtils.smoothstep(p,.48,.57)));
@@ -101,8 +103,8 @@ export function createWorkspaceScene(canvas,motionPreference) {
   function onLampClick(event){if(lampHit(event))toggleTheme()}
   function onMotion(){setupScroll();measure();syncLoop()}
   function visibility(){previous=0;syncLoop()}
-  function onLost(event){event.preventDefault();lost=true;renderer.setAnimationLoop(null);portal.hide();document.body.classList.remove('before-canvas');viewport.dataset.sceneState='fallback';}
-  function onRestored(){lost=false;viewport.dataset.sceneState='ready';measure();syncLoop()}
+  function onLost(event){event.preventDefault();lost=true;renderer.setAnimationLoop(null);portal.hide();document.body.classList.remove('before-canvas');viewport.dataset.sceneState='fallback';contextFallback?.dispose();contextFallback=createFallbackScene(motionPreference);}
+  function onRestored(){contextFallback?.dispose();contextFallback=null;lost=false;viewport.dataset.sceneState='ready';measure();syncLoop()}
   window.addEventListener('resize',measure);window.addEventListener('pointermove',onPointer,{passive:true});window.addEventListener('click',onLampClick);
   document.addEventListener('visibilitychange',visibility);motionPreference.addEventListener('change',onMotion);
   motionButton.addEventListener('click',toggle);canvas.addEventListener('webglcontextlost',onLost);canvas.addEventListener('webglcontextrestored',onRestored);
@@ -112,7 +114,7 @@ export function createWorkspaceScene(canvas,motionPreference) {
   loadingText.textContent='WORKSPACE READY';loading.classList.add('loaded');syncLoop();
   document.fonts.ready.then(()=>{if(!disposed)ScrollTrigger.refresh()});
   function dispose(){
-    disposed=true;renderer.setAnimationLoop(null);tween?.scrollTrigger?.kill();tween?.kill();lampTheme.dispose();
+    disposed=true;contextFallback?.dispose();renderer.setAnimationLoop(null);tween?.scrollTrigger?.kill();tween?.kill();lampTheme.dispose();
     window.removeEventListener('resize',measure);window.removeEventListener('pointermove',onPointer);window.removeEventListener('click',onLampClick);
     document.removeEventListener('visibilitychange',visibility);motionPreference.removeEventListener('change',onMotion);motionButton.removeEventListener('click',toggle);
     canvas.removeEventListener('webglcontextlost',onLost);canvas.removeEventListener('webglcontextrestored',onRestored);
